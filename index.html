@@ -9,132 +9,77 @@
 </head>
 <body>
 
-<div class="layout">
+<nav class="navbar">
+    <div class="logo">Divan</div>
+    <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
 
-    <aside class="sidebar">
-        <img class="profile-photo" src="assets/profile.jpg" alt="Profile photo">
+<section class="hero">
+    <div class="hero-content">
+        <h1>Hi, my name is <span>Divan Immelman</span></h1>
+        <h2>I build reliable systems and automation</h2>
+        <p>
+            Network and Security Engineering student focused on infrastructure,
+            Python automation, OCR systems, and production reliability.
+        </p>
+    </div>
+</section>
 
-        <section>
-            <h3>Education</h3>
+<section id="about" class="section">
+    <h3>About Me</h3>
+    <p>
+        Hands-on engineering student with experience in automation, server infrastructure,
+        containerization, and real-world IT operations. I enjoy building systems that are fast,
+        reliable, and easy to maintain.
+    </p>
+</section>
 
-            <p class="bold">Bachelor of Science in Information Technology</p>
-            <p>Security and Network Engineering</p>
-            <p>Eduvos Higher Education</p>
-            <p>2024 to 2027</p>
+<section id="projects" class="section">
+    <h3>Projects</h3>
 
-            <div class="spacer"></div>
+    <div class="card-grid">
+        <div class="card">
+            <h4>Modular Desktop OCR Platform</h4>
+            <p>Configurable OCR system using Python and PySide6 for automated document processing.</p>
+        </div>
 
-            <p class="bold">Higher Certificate in Information Technology</p>
-            <p>Software Development</p>
-            <p>Eduvos Higher Education</p>
-            <p>2023 to 2024</p>
-        </section>
+        <div class="card">
+            <h4>Barcode Extraction Pipeline</h4>
+            <p>YOLOv8 and OpenCV pipeline optimized for fast barcode recognition in PDFs.</p>
+        </div>
 
-        <section>
-            <h3>Personal Traits</h3>
-            <ul>
-                <li>Strong analytical thinking</li>
-                <li>Reliable and consistent</li>
-                <li>Fast learner</li>
-                <li>Clear communicator</li>
-                <li>Adaptable and solution focused</li>
-            </ul>
-        </section>
+        <div class="card">
+            <h4>Self-hosted Infrastructure Lab</h4>
+            <p>Proxmox, Docker, reverse proxy, firewall configuration, and secure service hosting.</p>
+        </div>
+    </div>
+</section>
 
-        <section>
-            <h3>Languages</h3>
-            <p>English. Fluent</p>
-            <p>Afrikaans. Native</p>
-        </section>
+<section id="skills" class="section">
+    <h3>Skills</h3>
 
-    </aside>
+    <div class="skill-grid">
+        <div>Python</div>
+        <div>Linux</div>
+        <div>Docker</div>
+        <div>NGINX</div>
+        <div>MikroTik</div>
+        <div>Networking</div>
+        <div>Windows Server</div>
+        <div>Git</div>
+    </div>
+</section>
 
-    <main class="content">
-
-        <header class="hero">
-            <h1>Divan Immelman</h1>
-            <p class="headline">Network and Security Engineer</p>
-
-            <div class="contact-row">
-                <div>📞 083-283-2093</div>
-                <div>✉️ Divanimm123@gmail.com</div>
-                <div>📍 Johannesburg, South Africa</div>
-            </div>
-        </header>
-
-        <section class="card">
-            <h2>Profile</h2>
-            <p>
-                Networking and Security Engineering student with strong technical, analytical, and problem-solving skills.
-                Experience in IT systems administration, network maintenance, automation, and infrastructure support.
-                Hands-on learner focused on efficiency, reliability, and continuous improvement.
-            </p>
-        </section>
-
-        <section class="card">
-            <h2>Work Experience</h2>
-
-            <div class="job">
-                <div class="job-header">
-                    <strong>Iscar South Africa</strong>
-                    <span>Systems Administrator Intern. Sept 2024 to Dec 2025</span>
-                </div>
-
-                <ul>
-                    <li>Provided front-line IT support for over 20 users.</li>
-                    <li>Monitored and maintained network infrastructure.</li>
-                    <li>Assisted with server installation and workstation setup.</li>
-                    <li>Improved workflows while handling multiple concurrent tasks.</li>
-                    <li>Gained exposure to enterprise IT operations.</li>
-                </ul>
-            </div>
-
-        </section>
-
-        <section class="card">
-            <h2>Projects</h2>
-
-            <ul>
-                <li>Automated OCR Document System using Python.</li>
-                <li>Real-time folder monitoring and document renaming.</li>
-                <li>Windows deployment processing hundreds of PDFs automatically.</li>
-            </ul>
-
-        </section>
-
-        <section class="card">
-            <h2>Technical Skills</h2>
-
-            <div class="skills-grid">
-                <div>Python automation</div>
-                <div>Linux and Windows Server</div>
-                <div>Docker and NGINX</div>
-                <div>Networking and MikroTik</div>
-                <div>Active Directory</div>
-                <div>Virtualization</div>
-                <div>Firewalls and access control</div>
-                <div>IT troubleshooting</div>
-            </div>
-
-        </section>
-
-        <section class="card">
-            <h2>Volunteer Work</h2>
-
-            <p class="bold">NG Dalpark Kaleo Church. Audio and Production</p>
-
-            <ul>
-                <li>Managed live sound and production systems.</li>
-                <li>Maintained lighting and audio equipment.</li>
-                <li>Provided IT support and network stability.</li>
-                <li>Assisted with event technical planning.</li>
-            </ul>
-
-        </section>
-
-    </main>
-
-</div>
+<section id="contact" class="section">
+    <h3>Contact</h3>
+    <p>Email: Divanimm123@gmail.com</p>
+    <p>Location: South Africa</p>
+</section>
 
 </body>
 </html>
