@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Divan Immelman | Network and Security Engineer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -22,14 +21,7 @@
 
 <section class="hero">
     <div class="glow"></div>
-
-    <div class="hero-content floating fade">
-        <div class="icon-row">
-            <div class="icon">></div>
-            <div class="icon">{ }</div>
-            <div class="icon">#</div>
-        </div>
-
+    <div class="hero-content floating">
         <h1>Hi, my name is <span>Divan Immelman</span></h1>
         <h2>I build reliable systems and automation</h2>
         <p>
@@ -39,7 +31,7 @@
     </div>
 </section>
 
-<section id="about" class="section fade">
+<section id="about" class="section">
     <h3>About Me</h3>
     <p>
         Hands-on engineering student with experience in automation, server infrastructure,
@@ -48,91 +40,115 @@
     </p>
 </section>
 
-<section id="projects" class="section fade">
+<section id="projects" class="section">
     <h3>Projects</h3>
 
     <div class="card-grid">
-        <div class="card" onclick="openModal('ocr')">
+        <div class="card">
             <h4>Modular Desktop OCR Platform</h4>
             <p>Configurable OCR system using Python and PySide6.</p>
         </div>
 
-        <div class="card" onclick="openModal('barcode')">
+        <div class="card">
             <h4>Barcode Extraction Pipeline</h4>
             <p>YOLOv8 and OpenCV optimized pipeline.</p>
         </div>
 
-        <div class="card" onclick="openModal('infra')">
+        <div class="card">
             <h4>Self-hosted Infrastructure Lab</h4>
             <p>Proxmox, Docker, reverse proxy, firewall systems.</p>
         </div>
     </div>
 </section>
 
-<section id="skills" class="section fade">
-    <h3>Skills</h3>
+<section id="skills" class="section">
+    <h3>Skills and Expertise</h3>
 
-    <div class="skill-grid">
-        <div>Python</div>
-        <div>Linux</div>
-        <div>Docker</div>
-        <div>NGINX</div>
-        <div>MikroTik</div>
-        <div>Networking</div>
-        <div>Windows Server</div>
-        <div>Git</div>
+    <div class="skill-tabs">
+        <button class="tab active" onclick="showSkills('development')">Development</button>
+        <button class="tab" onclick="showSkills('networking')">Networking</button>
+        <button class="tab" onclick="showSkills('systems')">Systems</button>
+        <button class="tab" onclick="showSkills('automation')">Automation</button>
+        <button class="tab" onclick="showSkills('security')">Security</button>
+        <button class="tab" onclick="showSkills('tools')">Tools</button>
     </div>
+
+    <div id="skill-container" class="skill-grid"></div>
 </section>
 
-<section id="contact" class="section fade">
+<section id="contact" class="section">
     <h3>Contact</h3>
     <p>Email: Divanimm123@gmail.com</p>
     <p>Location: South Africa</p>
 </section>
 
-<div class="modal" id="modal">
-    <div class="modal-content">
-        <h4 id="modal-title"></h4>
-        <p id="modal-text"></p>
-        <button onclick="closeModal()">Close</button>
-    </div>
-</div>
-
 <script>
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("show")
-        }
+const skills = {
+    development: [
+        "Python",
+        "OCR Pipelines",
+        "PySide6",
+        "OpenCV",
+        "Git",
+        "JSON",
+        "REST APIs"
+    ],
+    networking: [
+        "TCP/IP",
+        "Routing",
+        "VLANs",
+        "MikroTik",
+        "Firewall Rules",
+        "DNS",
+        "NAT"
+    ],
+    systems: [
+        "Linux",
+        "Windows Server",
+        "Active Directory",
+        "VMware",
+        "Proxmox",
+        "System Monitoring"
+    ],
+    automation: [
+        "Python Automation",
+        "Watchdog File Monitoring",
+        "Batch Processing",
+        "OCR Automation",
+        "Task Scheduling"
+    ],
+    security: [
+        "Firewall Configuration",
+        "Access Control",
+        "Network Segmentation",
+        "Basic Hardening",
+        "Patch Management"
+    ],
+    tools: [
+        "Docker",
+        "NGINX",
+        "GitHub",
+        "VS Code",
+        "PowerShell",
+        "VirtualBox"
+    ]
+}
+
+const container = document.getElementById("skill-container")
+
+function showSkills(category) {
+    document.querySelectorAll(".tab").forEach(btn => btn.classList.remove("active"))
+    event.target.classList.add("active")
+
+    container.innerHTML = ""
+    skills[category].forEach(skill => {
+        const div = document.createElement("div")
+        div.textContent = skill
+        container.appendChild(div)
     })
-})
-
-document.querySelectorAll(".fade").forEach(el => observer.observe(el))
-
-const projectData = {
-    ocr: {
-        title: "Modular Desktop OCR Platform",
-        text: "Configurable OCR system with profile management, folder monitoring, barcode detection, and automated document processing."
-    },
-    barcode: {
-        title: "Barcode Extraction Pipeline",
-        text: "High-speed barcode detection using YOLOv8, OpenCV, and EasyOCR optimized for production workflows."
-    },
-    infra: {
-        title: "Self-hosted Infrastructure Lab",
-        text: "Proxmox virtualization, Docker containers, NGINX reverse proxy, firewall rules, and secure remote access."
-    }
 }
 
-function openModal(key) {
-    document.getElementById("modal-title").innerText = projectData[key].title
-    document.getElementById("modal-text").innerText = projectData[key].text
-    document.getElementById("modal").classList.add("show")
-}
-
-function closeModal() {
-    document.getElementById("modal").classList.remove("show")
-}
+showSkills("development")
 </script>
 
 </body>
