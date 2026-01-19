@@ -2,115 +2,144 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Divan Immelman | Network and Security Engineer</title>
+    <title>Divan Immelman</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<nav class="navbar">
+<header class="nav">
     <div class="logo">Divan</div>
-    <div class="nav-links">
+    <nav>
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
-        <a class="cv-btn" href="assets/Divan-Immelman-CV.pdf" download>CV</a>
-    </div>
-</nav>
+        <a class="cv" href="assets/Divan_Immelman_CV.pdf" download>CV</a>
+    </nav>
+</header>
 
 <section class="hero">
-    <div class="glow"></div>
-    <div class="hero-content floating">
-        <h1>Hi, my name is <span>Divan Immelman</span></h1>
-        <h2>I build reliable systems and automation</h2>
-        <p>
-            Network and Security Engineering student focused on infrastructure,
-            Python automation, OCR systems, and production reliability.
-        </p>
-    </div>
-</section>
-
-<section id="about" class="section">
-    <h3 class="center-title">About Me</h3>
-    <p class="center-text">
-        Hands-on engineering student with experience in automation, server infrastructure,
-        containerization, and real-world IT operations. You build systems that are fast,
-        reliable, and easy to maintain.
+    <h1>Hi, my name is <span>Divan Immelman</span></h1>
+    <p class="tagline">I build reliable systems and automation</p>
+    <p class="subtitle">
+        Network and Security Engineering student focused on infrastructure, Python automation,
+        OCR systems, and production reliability.
     </p>
 </section>
 
-<section id="projects" class="section section-glow">
-    <div class="section-glow-bg"></div>
+<section id="about" class="section">
+    <h2>About Me</h2>
+    <p class="center-text">
+        Hands-on engineering student with experience in automation, server infrastructure,
+        containerization, and real-world IT operations. You build systems that are fast, reliable,
+        and easy to maintain.
+    </p>
+</section>
 
-    <h3 class="center-title">Projects</h3>
-
-    <div class="card-grid centered-grid">
+<section id="projects" class="section glow">
+    <h2>Projects</h2>
+    <div class="card-grid">
         <div class="card">
-            <h4>Modular Desktop OCR Platform</h4>
+            <h3>Modular Desktop OCR Platform</h3>
             <p>Configurable OCR system using Python and PySide6.</p>
         </div>
-
         <div class="card">
-            <h4>Barcode Extraction Pipeline</h4>
+            <h3>Barcode Extraction Pipeline</h3>
             <p>YOLOv8 and OpenCV optimized pipeline.</p>
         </div>
-
         <div class="card">
-            <h4>Self-hosted Infrastructure Lab</h4>
+            <h3>Self-hosted Infrastructure Lab</h3>
             <p>Proxmox, Docker, reverse proxy, firewall systems.</p>
         </div>
     </div>
 </section>
 
-<section id="skills" class="section section-glow">
-    <div class="section-glow-bg"></div>
+<section id="skills" class="section">
+    <h2>Skills and Expertise</h2>
 
-    <h3 class="center-title">Skills and Expertise</h3>
-
-    <div class="skill-tabs centered-tabs">
-        <button class="tab active" onclick="showSkills('development', this)">Development</button>
-        <button class="tab" onclick="showSkills('networking', this)">Networking</button>
-        <button class="tab" onclick="showSkills('systems', this)">Systems</button>
-        <button class="tab" onclick="showSkills('automation', this)">Automation</button>
-        <button class="tab" onclick="showSkills('security', this)">Security</button>
-        <button class="tab" onclick="showSkills('tools', this)">Tools</button>
+    <div class="skill-tabs">
+        <button class="tab active" data-group="development">Development</button>
+        <button class="tab" data-group="networking">Networking</button>
+        <button class="tab" data-group="systems">Systems</button>
+        <button class="tab" data-group="automation">Automation</button>
+        <button class="tab" data-group="security">Security</button>
+        <button class="tab" data-group="tools">Tools</button>
     </div>
 
-    <div id="skill-container" class="skill-grid centered-grid"></div>
+    <div class="skill-content">
+
+        <div class="skills active" id="development">
+            <span>Python</span>
+            <span>Git</span>
+            <span>REST APIs</span>
+            <span>OCR Pipelines</span>
+        </div>
+
+        <div class="skills" id="networking">
+            <span>TCP/IP</span>
+            <span>Routing</span>
+            <span>VLANs</span>
+            <span>MikroTik</span>
+            <span>DNS</span>
+            <span>NAT</span>
+        </div>
+
+        <div class="skills" id="systems">
+            <span>Linux</span>
+            <span>Windows Server</span>
+            <span>Proxmox</span>
+            <span>VMware</span>
+        </div>
+
+        <div class="skills" id="automation">
+            <span>Python Automation</span>
+            <span>PowerShell</span>
+            <span>Task Scheduling</span>
+        </div>
+
+        <div class="skills" id="security">
+            <span>Firewalls</span>
+            <span>Access Control</span>
+            <span>Network Hardening</span>
+        </div>
+
+        <div class="skills" id="tools">
+            <span>Docker</span>
+            <span>NGINX</span>
+            <span>GitHub</span>
+            <span>VS Code</span>
+            <span>VirtualBox</span>
+        </div>
+
+    </div>
 </section>
 
 <section id="contact" class="section">
-    <h3 class="center-title">Contact</h3>
-    <p>Email: Divanimm123@gmail.com</p>
-    <p>Location: South Africa</p>
+    <h2>Contact</h2>
+    <div class="contact-grid">
+        <div>Email: divanimml23@gmail.com</div>
+        <div>Location: South Africa</div>
+    </div>
 </section>
 
+<footer>
+    © 2026 Divan Immelman
+</footer>
+
 <script>
-const skills = {
-    development: ["Python", "PySide6", "OpenCV", "OCR Pipelines", "Git", "REST APIs"],
-    networking: ["TCP/IP", "Routing", "VLANs", "MikroTik", "Firewall Rules", "DNS", "NAT"],
-    systems: ["Linux", "Windows Server", "Active Directory", "VMware", "Proxmox", "Monitoring"],
-    automation: ["Python Automation", "Watchdog", "Batch Processing", "OCR Automation", "Task Scheduling"],
-    security: ["Firewall Configuration", "Access Control", "Network Segmentation", "System Hardening", "Patch Management"],
-    tools: ["Docker", "NGINX", "GitHub", "VS Code", "PowerShell", "VirtualBox"]
-}
+const tabs = document.querySelectorAll(".tab");
+const skillGroups = document.querySelectorAll(".skills");
 
-const container = document.getElementById("skill-container")
+tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+        tabs.forEach(t => t.classList.remove("active"));
+        skillGroups.forEach(g => g.classList.remove("active"));
 
-function showSkills(category, button) {
-    document.querySelectorAll(".tab").forEach(btn => btn.classList.remove("active"))
-    button.classList.add("active")
-
-    container.innerHTML = ""
-    skills[category].forEach(skill => {
-        const div = document.createElement("div")
-        div.textContent = skill
-        container.appendChild(div)
-    })
-}
-
-showSkills("development", document.querySelector(".tab"))
+        tab.classList.add("active");
+        document.getElementById(tab.dataset.group).classList.add("active");
+    });
+});
 </script>
 
 </body>
