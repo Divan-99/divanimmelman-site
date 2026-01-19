@@ -17,7 +17,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 16px 32px;
-    background: rgba(5, 7, 10, 0.8);
+    background: rgba(5, 7, 10, 0.85);
     backdrop-filter: blur(10px);
 }
 
@@ -37,13 +37,44 @@ body {
     color: #facc15;
 }
 
+.cv-btn {
+    padding: 6px 12px;
+    border: 1px solid #facc15;
+    border-radius: 6px;
+}
+
 .hero {
+    position: relative;
     min-height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 40px 16px;
+    overflow: hidden;
+}
+
+.glow {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(250,204,21,0.15), transparent 70%);
+    filter: blur(80px);
+    animation: pulse 6s infinite alternate;
+}
+
+@keyframes pulse {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+}
+
+.floating {
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0px); }
 }
 
 .hero h1 {
@@ -67,43 +98,104 @@ body {
     color: #9ca3af;
 }
 
+.icon-row {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #facc15;
+    font-weight: 700;
+}
+
 .section {
     max-width: 1100px;
     margin: auto;
-    padding: 80px 16px;
+    padding: 90px 16px;
 }
 
 .section h3 {
     font-size: 28px;
-    margin-bottom: 24px;
+    margin-bottom: 32px;
 }
 
 .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 24px;
+    gap: 28px;
 }
 
 .card {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
-    padding: 24px;
-    transition: transform 0.2s ease;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    padding: 28px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-6px);
+    box-shadow: 0 10px 40px rgba(250,204,21,0.15);
 }
 
 .skill-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 12px;
+    gap: 14px;
 }
 
 .skill-grid div {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 12px;
+    background: rgba(255, 255, 255, 0.06);
+    padding: 14px;
     text-align: center;
-    border-radius: 8px;
+    border-radius: 10px;
+}
+
+.fade {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    background: #05070a;
+    padding: 32px;
+    border-radius: 12px;
+    max-width: 480px;
+    text-align: center;
+}
+
+.modal-content button {
+    margin-top: 16px;
+    padding: 8px 16px;
+    border: none;
+    background: #facc15;
+    cursor: pointer;
 }

@@ -21,7 +21,9 @@
 </nav>
 
 <section class="hero">
-    <div class="hero-content fade">
+    <div class="glow"></div>
+
+    <div class="hero-content floating fade">
         <div class="icon-row">
             <div class="icon">></div>
             <div class="icon">{ }</div>
@@ -50,22 +52,19 @@
     <h3>Projects</h3>
 
     <div class="card-grid">
-        <div class="card">
+        <div class="card" onclick="openModal('ocr')">
             <h4>Modular Desktop OCR Platform</h4>
-            <p>Configurable OCR system using Python and PySide6 for automated document processing.</p>
-            <a class="card-btn" href="#">View</a>
+            <p>Configurable OCR system using Python and PySide6.</p>
         </div>
 
-        <div class="card">
+        <div class="card" onclick="openModal('barcode')">
             <h4>Barcode Extraction Pipeline</h4>
-            <p>YOLOv8 and OpenCV pipeline optimized for fast barcode recognition in PDFs.</p>
-            <a class="card-btn" href="#">View</a>
+            <p>YOLOv8 and OpenCV optimized pipeline.</p>
         </div>
 
-        <div class="card">
+        <div class="card" onclick="openModal('infra')">
             <h4>Self-hosted Infrastructure Lab</h4>
-            <p>Proxmox, Docker, reverse proxy, firewall configuration, and secure service hosting.</p>
-            <a class="card-btn" href="#">View</a>
+            <p>Proxmox, Docker, reverse proxy, firewall systems.</p>
         </div>
     </div>
 </section>
@@ -91,6 +90,14 @@
     <p>Location: South Africa</p>
 </section>
 
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <h4 id="modal-title"></h4>
+        <p id="modal-text"></p>
+        <button onclick="closeModal()">Close</button>
+    </div>
+</div>
+
 <script>
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -101,6 +108,31 @@ const observer = new IntersectionObserver(entries => {
 })
 
 document.querySelectorAll(".fade").forEach(el => observer.observe(el))
+
+const projectData = {
+    ocr: {
+        title: "Modular Desktop OCR Platform",
+        text: "Configurable OCR system with profile management, folder monitoring, barcode detection, and automated document processing."
+    },
+    barcode: {
+        title: "Barcode Extraction Pipeline",
+        text: "High-speed barcode detection using YOLOv8, OpenCV, and EasyOCR optimized for production workflows."
+    },
+    infra: {
+        title: "Self-hosted Infrastructure Lab",
+        text: "Proxmox virtualization, Docker containers, NGINX reverse proxy, firewall rules, and secure remote access."
+    }
+}
+
+function openModal(key) {
+    document.getElementById("modal-title").innerText = projectData[key].title
+    document.getElementById("modal-text").innerText = projectData[key].text
+    document.getElementById("modal").classList.add("show")
+}
+
+function closeModal() {
+    document.getElementById("modal").classList.remove("show")
+}
 </script>
 
 </body>
