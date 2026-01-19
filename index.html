@@ -149,15 +149,14 @@
       </div>
     </div>
 
-    <form class="contact-form">
+    <form class="contact-form" id="contactForm">
       <div class="form-row">
-        <input type="text" placeholder="Name" required />
-        <input type="email" placeholder="Email" required />
+        <input type="text" name="name" placeholder="Name" required />
+	<input type="email" name="email" placeholder="Email" required />
       </div>
 
-      <input type="text" placeholder="Subject" required />
-
-      <textarea placeholder="Message" rows="5" required></textarea>
+      <input type="text" name="subject" placeholder="Subject" required />
+	<textarea name="message" placeholder="Message" rows="5" required></textarea>
 
       <button type="submit">Send Message</button>
     </form>
@@ -184,6 +183,30 @@ tabs.forEach(tab => {
     });
 });
 </script>
+
+<script>
+const form = document.getElementById("contactForm");
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const data = Object.fromEntries(new FormData(form));
+
+  const response = await fetch("https://contact-worker.divanimm123.workers.dev", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data)
+  });
+
+  if (response.ok) {
+    alert("Message sent successfully");
+    form.reset();
+  } else {
+    alert("Message failed");
+  }
+});
+</script>
+
 
 </body>
 </html>
