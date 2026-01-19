@@ -352,3 +352,34 @@ footer {
   border-left: 4px solid #ff5c5c;
 }
 
+@media (max-width: 768px) {
+
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(10,10,20,0.95);
+    backdrop-filter: blur(8px);
+    z-index: 10000;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 14px;
+    font-size: 13px;
+  }
+
+  .nav-links a {
+    padding: 6px 8px;
+  }
+
+  body {
+    padding-top: 56px;
+  }
+
+}
