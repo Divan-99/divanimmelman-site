@@ -5,7 +5,7 @@
 body {
     margin: 0;
     font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    background: radial-gradient(circle at top, #1f2933, #05070a);
+    background: radial-gradient(circle at top, #1b2430, #05070a);
     color: #e5e7eb;
 }
 
@@ -16,8 +16,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px 32px;
-    background: rgba(5, 7, 10, 0.85);
+    padding: 14px 32px;
+    background: rgba(5, 7, 10, 0.9);
     backdrop-filter: blur(10px);
 }
 
@@ -27,10 +27,10 @@ body {
 }
 
 .nav-links a {
-    margin-left: 20px;
+    margin-left: 18px;
     text-decoration: none;
     color: #e5e7eb;
-    font-size: 14px;
+    font-size: 13px;
 }
 
 .nav-links a:hover {
@@ -38,14 +38,14 @@ body {
 }
 
 .cv-btn {
-    padding: 6px 12px;
+    padding: 5px 10px;
     border: 1px solid #facc15;
     border-radius: 6px;
 }
 
 .hero {
     position: relative;
-    min-height: 90vh;
+    min-height: 85vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -55,16 +55,16 @@ body {
 
 .glow {
     position: absolute;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(250,204,21,0.15), transparent 70%);
-    filter: blur(80px);
+    width: 520px;
+    height: 520px;
+    background: radial-gradient(circle, rgba(250,204,21,0.18), transparent 70%);
+    filter: blur(90px);
     animation: pulse 6s infinite alternate;
 }
 
 @keyframes pulse {
     from { transform: scale(1); }
-    to { transform: scale(1.1); }
+    to { transform: scale(1.08); }
 }
 
 .floating {
@@ -73,12 +73,12 @@ body {
 
 @keyframes float {
     0% { transform: translateY(0px); }
-    50% { transform: translateY(-8px); }
+    50% { transform: translateY(-6px); }
     100% { transform: translateY(0px); }
 }
 
 .hero h1 {
-    font-size: 48px;
+    font-size: 44px;
     margin: 0;
 }
 
@@ -87,27 +87,28 @@ body {
 }
 
 .hero h2 {
-    margin-top: 12px;
+    margin-top: 10px;
     font-weight: 400;
     color: #d1d5db;
 }
 
 .hero p {
-    max-width: 640px;
-    margin: 20px auto 0;
+    max-width: 600px;
+    margin: 16px auto 0;
     color: #9ca3af;
+    font-size: 14px;
 }
 
 .icon-row {
     display: flex;
     justify-content: center;
-    gap: 16px;
-    margin-bottom: 24px;
+    gap: 14px;
+    margin-bottom: 18px;
 }
 
 .icon {
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.08);
     display: flex;
@@ -118,52 +119,57 @@ body {
 }
 
 .section {
-    max-width: 1100px;
+    max-width: 1050px;
     margin: auto;
-    padding: 90px 16px;
+    padding: 60px 16px;
+}
+
+.section:not(:first-of-type) {
+    border-top: 1px solid rgba(255,255,255,0.06);
 }
 
 .section h3 {
-    font-size: 28px;
-    margin-bottom: 32px;
+    font-size: 24px;
+    margin-bottom: 20px;
 }
 
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 28px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
 }
 
 .card {
-    background: rgba(255, 255, 255, 0.06);
+    background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
     border-radius: 14px;
-    padding: 28px;
+    padding: 22px;
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 10px 40px rgba(250,204,21,0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(250,204,21,0.18);
 }
 
 .skill-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 14px;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
 }
 
 .skill-grid div {
-    background: rgba(255, 255, 255, 0.06);
-    padding: 14px;
+    background: rgba(255, 255, 255, 0.07);
+    padding: 10px;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 8px;
+    font-size: 13px;
 }
 
 .fade {
     opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .fade.show {
@@ -174,7 +180,7 @@ body {
 .modal {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.7);
+    background: rgba(0,0,0,0.75);
     display: none;
     align-items: center;
     justify-content: center;
@@ -186,14 +192,14 @@ body {
 
 .modal-content {
     background: #05070a;
-    padding: 32px;
+    padding: 28px;
     border-radius: 12px;
-    max-width: 480px;
+    max-width: 460px;
     text-align: center;
 }
 
 .modal-content button {
-    margin-top: 16px;
+    margin-top: 14px;
     padding: 8px 16px;
     border: none;
     background: #facc15;
