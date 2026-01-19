@@ -53,14 +53,30 @@ body {
     color: #ff4fa3;
 }
 
-.tagline {
-    margin-top: 12px;
-    font-size: 18px;
+.typing-line {
+    margin-top: 14px;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+#typing-text {
+    color: #ffc14d;
+}
+
+.cursor {
+    display: inline-block;
+    margin-left: 2px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0; }
 }
 
 .subtitle {
-    margin-top: 10px;
-    max-width: 640px;
+    margin-top: 16px;
+    max-width: 720px;
     font-size: 14px;
     color: #b9bcc9;
 }
@@ -286,6 +302,10 @@ footer {
 
     .form-row {
         grid-template-columns: 1fr;
+    }
+
+    .typing-line {
+        font-size: 18px;
     }
 }
 

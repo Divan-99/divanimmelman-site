@@ -20,7 +20,11 @@
 
 <section class="hero">
     <h1>Hi, my name is <span>Divan Immelman</span></h1>
-    <p class="tagline">I build reliable digital systems and automation solutions.</p>
+
+    <div class="typing-line">
+        I am a <span id="typing-text"></span><span class="cursor">|</span>
+    </div>
+
     <p class="subtitle">
         Network and Security Engineering student with a strong interest in building dependable
         technology solutions, improving system efficiency, and solving practical technical
@@ -32,9 +36,9 @@
     <h2>About Me</h2>
     <p class="center-text">
         Hands-on engineering student with experience working across software, infrastructure,
-        and automation projects. You enjoy understanding how systems work end to end, identifying
+        and automation projects. I enjoy understanding how systems work end to end, identifying
         inefficiencies, and improving reliability through clean design and disciplined execution.
-        You value practical solutions, continuous learning, and building technology that is easy
+        I value practical solutions, continuous learning, and building technology that is easy
         to maintain, scale, and operate in real-world environments.
     </p>
 </section>
@@ -174,6 +178,8 @@
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
+  /* CONTACT FORM */
+
   const form = document.getElementById("contactForm");
   const toast = document.getElementById("toast");
 
@@ -212,6 +218,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  /* SKILLS TABS */
+
   document.querySelectorAll(".tab").forEach(button => {
     button.addEventListener("click", () => {
 
@@ -223,6 +231,50 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById(group).classList.add("active");
     });
   });
+
+  /* TYPING EFFECT */
+
+  const titles = [
+    "Cybersecurity Enthusiast",
+    "System Administrator",
+    "Automation Developer",
+    "Infrastructure Engineer"
+  ];
+
+  const typingText = document.getElementById("typing-text");
+
+  let titleIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+
+  const typingSpeed = 80;
+  const deletingSpeed = 50;
+  const pauseAfterTyping = 1200;
+
+  function typeLoop() {
+    const current = titles[titleIndex];
+
+    if (!isDeleting) {
+      typingText.textContent = current.slice(0, charIndex + 1);
+      charIndex++;
+
+      if (charIndex === current.length) {
+        setTimeout(() => isDeleting = true, pauseAfterTyping);
+      }
+    } else {
+      typingText.textContent = current.slice(0, charIndex - 1);
+      charIndex--;
+
+      if (charIndex === 0) {
+        isDeleting = false;
+        titleIndex = (titleIndex + 1) % titles.length;
+      }
+    }
+
+    setTimeout(typeLoop, isDeleting ? deletingSpeed : typingSpeed);
+  }
+
+  typeLoop();
 
 });
 </script>
