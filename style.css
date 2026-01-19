@@ -9,6 +9,10 @@ body {
     color: #e5e7eb;
 }
 
+:root {
+    --accent: #ff4da6;
+}
+
 .navbar {
     position: sticky;
     top: 0;
@@ -32,12 +36,12 @@ body {
 }
 
 .nav-links a:hover {
-    color: #facc15;
+    color: var(--accent);
 }
 
 .cv-btn {
     padding: 5px 10px;
-    border: 1px solid #facc15;
+    border: 1px solid var(--accent);
     border-radius: 6px;
 }
 
@@ -55,7 +59,7 @@ body {
     position: absolute;
     width: 520px;
     height: 520px;
-    background: radial-gradient(circle, rgba(250,204,21,0.18), transparent 70%);
+    background: radial-gradient(circle, rgba(255,77,166,0.22), transparent 70%);
     filter: blur(90px);
 }
 
@@ -64,7 +68,7 @@ body {
 }
 
 .hero span {
-    color: #facc15;
+    color: var(--accent);
 }
 
 .hero h2 {
@@ -93,7 +97,7 @@ body {
 .section-glow-bg {
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at center, rgba(250,204,21,0.12), transparent 65%);
+    background: radial-gradient(circle at center, rgba(255,77,166,0.16), transparent 65%);
     filter: blur(120px);
     pointer-events: none;
 }
@@ -130,7 +134,7 @@ body {
 
 .card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 12px 42px rgba(250,204,21,0.25);
+    box-shadow: 0 12px 42px rgba(255,77,166,0.35);
 }
 
 .skill-tabs {
@@ -145,19 +149,24 @@ body {
 }
 
 .tab {
-    padding: 8px 18px;
+    padding: 9px 20px;
     border-radius: 22px;
     background: rgba(255,255,255,0.08);
     color: #e5e7eb;
-    border: none;
+    border: 1px solid rgba(255,255,255,0.12);
     cursor: pointer;
     font-size: 13px;
-    transition: background 0.2s ease, color 0.2s ease;
+    transition: background 0.2s ease, border 0.2s ease, color 0.2s ease;
+}
+
+.tab:hover {
+    border-color: var(--accent);
 }
 
 .tab.active {
-    background: #facc15;
-    color: #05070a;
+    background: rgba(255,77,166,0.25);
+    border-color: var(--accent);
+    color: #ffffff;
 }
 
 .skill-grid {
@@ -178,5 +187,5 @@ body {
 
 .skill-grid div:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 28px rgba(250,204,21,0.2);
+    box-shadow: 0 8px 28px rgba(255,77,166,0.3);
 }
