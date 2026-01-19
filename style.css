@@ -321,3 +321,34 @@ footer {
         font-size: 13px;
     }
 }
+
+
+.toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  padding: 14px 22px;
+  border-radius: 12px;
+  background: rgba(30,30,40,0.95);
+  color: #fff;
+  font-size: 14px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  z-index: 9999;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toast.success {
+  border-left: 4px solid #ff4fa3;
+}
+
+.toast.error {
+  border-left: 4px solid #ff5c5c;
+}
+
