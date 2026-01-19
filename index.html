@@ -166,66 +166,54 @@
 
 
 <footer>
-    © 2026 Divan Immelman. All rights reserved.
+  © 2026 Divan Immelman. All rights reserved.
 </footer>
-
-<script>
-const tabs = document.querySelectorAll(".tab");
-const skillGroups = document.querySelectorAll(".skills");
-
-tabs.forEach(tab => {
-    tab.addEventListener("click", () => {
-        tabs.forEach(t => t.classList.remove("active"));
-        skillGroups.forEach(g => g.classList.remove("active"));
-
-        tab.classList.add("active");
-        document.getElementById(tab.dataset.group).classList.add("active");
-    });
-});
-</script>
 
 <div id="toast" class="toast"></div>
 
 <script>
-const form = document.getElementById("contactForm");
-const toast = document.getElementById("toast");
+document.addEventListener("DOMContentLoaded", () => {
 
-function showToast(message, success = true) {
-  toast.textContent = message;
-  toast.className = "toast show " + (success ? "success" : "error");
+  const form = document.getElementById("contactForm");
+  const toast = document.getElementById("toast");
 
-  setTimeout(() => {
-    toast.className = "toast";
-  }, 3200);
-}
+  function showToast(message, success = true) {
+    toast.textContent = message;
+    toast.className = "toast show " + (success ? "success" : "error");
 
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  showToast("Sending message...", true);
-
-  const data = Object.fromEntries(new FormData(form));
-
-  try {
-    const response = await fetch("https://contact-worker.divanimm123.workers.dev", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data)
-    });
-
-    if (response.ok) {
-      showToast("Message sent successfully");
-      form.reset();
-    } else {
-      showToast("Message failed. Try again.", false);
-    }
-
-  } catch {
-    showToast("Network error. Try again.", false);
+    setTimeout(() => {
+      toast.className = "toast";
+    }, 3200);
   }
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    showToast("Sending message...", true);
+
+    const data = Object.fromEntries(new FormData(form));
+
+    try {
+      const response = await fetch("https://contact-worker.divanimm123.workers.dev", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      });
+
+      if (response.ok) {
+        showToast("Message sent successfully");
+        form.reset();
+      } else {
+        showToast("Message failed. Try again.", false);
+      }
+
+    } catch {
+      showToast("Network error. Try again.", false);
+    }
+  });
+
 });
 </script>
-
 
 </body>
 </html>
