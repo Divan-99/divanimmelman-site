@@ -33,17 +33,19 @@
 
 <section id="about" class="section">
     <h3>About Me</h3>
-    <p>
+    <p class="center-text">
         Hands-on engineering student with experience in automation, server infrastructure,
         containerization, and real-world IT operations. You build systems that are fast,
         reliable, and easy to maintain.
     </p>
 </section>
 
-<section id="projects" class="section">
-    <h3>Projects</h3>
+<section id="projects" class="section section-glow">
+    <div class="section-glow-bg"></div>
 
-    <div class="card-grid">
+    <h3 class="center-title">Projects</h3>
+
+    <div class="card-grid centered-grid">
         <div class="card">
             <h4>Modular Desktop OCR Platform</h4>
             <p>Configurable OCR system using Python and PySide6.</p>
@@ -61,19 +63,21 @@
     </div>
 </section>
 
-<section id="skills" class="section">
-    <h3>Skills and Expertise</h3>
+<section id="skills" class="section section-glow">
+    <div class="section-glow-bg"></div>
 
-    <div class="skill-tabs">
-        <button class="tab active" onclick="showSkills('development')">Development</button>
-        <button class="tab" onclick="showSkills('networking')">Networking</button>
-        <button class="tab" onclick="showSkills('systems')">Systems</button>
-        <button class="tab" onclick="showSkills('automation')">Automation</button>
-        <button class="tab" onclick="showSkills('security')">Security</button>
-        <button class="tab" onclick="showSkills('tools')">Tools</button>
+    <h3 class="center-title">Skills and Expertise</h3>
+
+    <div class="skill-tabs centered-tabs">
+        <button class="tab active" onclick="showSkills('development', this)">Development</button>
+        <button class="tab" onclick="showSkills('networking', this)">Networking</button>
+        <button class="tab" onclick="showSkills('systems', this)">Systems</button>
+        <button class="tab" onclick="showSkills('automation', this)">Automation</button>
+        <button class="tab" onclick="showSkills('security', this)">Security</button>
+        <button class="tab" onclick="showSkills('tools', this)">Tools</button>
     </div>
 
-    <div id="skill-container" class="skill-grid"></div>
+    <div id="skill-container" class="skill-grid centered-grid"></div>
 </section>
 
 <section id="contact" class="section">
@@ -86,11 +90,10 @@
 const skills = {
     development: [
         "Python",
-        "OCR Pipelines",
         "PySide6",
         "OpenCV",
+        "OCR Pipelines",
         "Git",
-        "JSON",
         "REST APIs"
     ],
     networking: [
@@ -108,11 +111,11 @@ const skills = {
         "Active Directory",
         "VMware",
         "Proxmox",
-        "System Monitoring"
+        "Monitoring"
     ],
     automation: [
         "Python Automation",
-        "Watchdog File Monitoring",
+        "Watchdog",
         "Batch Processing",
         "OCR Automation",
         "Task Scheduling"
@@ -121,7 +124,7 @@ const skills = {
         "Firewall Configuration",
         "Access Control",
         "Network Segmentation",
-        "Basic Hardening",
+        "System Hardening",
         "Patch Management"
     ],
     tools: [
@@ -136,9 +139,9 @@ const skills = {
 
 const container = document.getElementById("skill-container")
 
-function showSkills(category) {
+function showSkills(category, button) {
     document.querySelectorAll(".tab").forEach(btn => btn.classList.remove("active"))
-    event.target.classList.add("active")
+    button.classList.add("active")
 
     container.innerHTML = ""
     skills[category].forEach(skill => {
@@ -148,7 +151,7 @@ function showSkills(category) {
     })
 }
 
-showSkills("development")
+showSkills("development", document.querySelector(".tab"))
 </script>
 
 </body>

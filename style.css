@@ -80,43 +80,79 @@ body {
 }
 
 .section {
-    max-width: 1050px;
+    position: relative;
+    max-width: 1100px;
     margin: auto;
-    padding: 60px 16px;
+    padding: 70px 16px;
 }
 
-.section h3 {
-    font-size: 24px;
-    margin-bottom: 20px;
+.section-glow {
+    overflow: hidden;
+}
+
+.section-glow-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(250,204,21,0.12), transparent 65%);
+    filter: blur(120px);
+    pointer-events: none;
+}
+
+.center-title {
+    text-align: center;
+}
+
+.center-text {
+    text-align: center;
+    max-width: 720px;
+    margin: auto;
+}
+
+.centered-grid {
+    justify-items: center;
 }
 
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 26px;
+    margin-top: 32px;
 }
 
 .card {
-    background: rgba(255,255,255,0.07);
-    border-radius: 14px;
-    padding: 22px;
+    width: 100%;
+    max-width: 320px;
+    background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+    border-radius: 16px;
+    padding: 26px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 42px rgba(250,204,21,0.25);
 }
 
 .skill-tabs {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 28px;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.centered-tabs {
+    justify-content: center;
 }
 
 .tab {
-    padding: 8px 16px;
-    border-radius: 20px;
-    background: rgba(255,255,255,0.06);
+    padding: 8px 18px;
+    border-radius: 22px;
+    background: rgba(255,255,255,0.08);
     color: #e5e7eb;
     border: none;
     cursor: pointer;
     font-size: 13px;
+    transition: background 0.2s ease, color 0.2s ease;
 }
 
 .tab.active {
@@ -127,13 +163,20 @@ body {
 .skill-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 12px;
+    gap: 14px;
+    margin-top: 32px;
 }
 
 .skill-grid div {
-    background: rgba(255,255,255,0.07);
-    padding: 12px;
+    background: rgba(255,255,255,0.08);
+    padding: 14px;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 12px;
     font-size: 13px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skill-grid div:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 28px rgba(250,204,21,0.2);
 }
