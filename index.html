@@ -16,11 +16,18 @@
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
+        <a class="cv-btn" href="assets/Divan-Immelman-CV.pdf" target="_blank">CV</a>
     </div>
 </nav>
 
 <section class="hero">
-    <div class="hero-content">
+    <div class="hero-content fade">
+        <div class="icon-row">
+            <div class="icon">></div>
+            <div class="icon">{ }</div>
+            <div class="icon">#</div>
+        </div>
+
         <h1>Hi, my name is <span>Divan Immelman</span></h1>
         <h2>I build reliable systems and automation</h2>
         <p>
@@ -30,37 +37,40 @@
     </div>
 </section>
 
-<section id="about" class="section">
+<section id="about" class="section fade">
     <h3>About Me</h3>
     <p>
         Hands-on engineering student with experience in automation, server infrastructure,
-        containerization, and real-world IT operations. I enjoy building systems that are fast,
+        containerization, and real-world IT operations. You build systems that are fast,
         reliable, and easy to maintain.
     </p>
 </section>
 
-<section id="projects" class="section">
+<section id="projects" class="section fade">
     <h3>Projects</h3>
 
     <div class="card-grid">
         <div class="card">
             <h4>Modular Desktop OCR Platform</h4>
             <p>Configurable OCR system using Python and PySide6 for automated document processing.</p>
+            <a class="card-btn" href="#">View</a>
         </div>
 
         <div class="card">
             <h4>Barcode Extraction Pipeline</h4>
             <p>YOLOv8 and OpenCV pipeline optimized for fast barcode recognition in PDFs.</p>
+            <a class="card-btn" href="#">View</a>
         </div>
 
         <div class="card">
             <h4>Self-hosted Infrastructure Lab</h4>
             <p>Proxmox, Docker, reverse proxy, firewall configuration, and secure service hosting.</p>
+            <a class="card-btn" href="#">View</a>
         </div>
     </div>
 </section>
 
-<section id="skills" class="section">
+<section id="skills" class="section fade">
     <h3>Skills</h3>
 
     <div class="skill-grid">
@@ -75,11 +85,23 @@
     </div>
 </section>
 
-<section id="contact" class="section">
+<section id="contact" class="section fade">
     <h3>Contact</h3>
     <p>Email: Divanimm123@gmail.com</p>
     <p>Location: South Africa</p>
 </section>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show")
+        }
+    })
+})
+
+document.querySelectorAll(".fade").forEach(el => observer.observe(el))
+</script>
 
 </body>
 </html>
