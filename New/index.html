@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Divan Immelman</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="logo">Divan</div>
+    <nav>
+      <a href="#work">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a class="cv" href="/Divan_Immelman_CV.pdf" target="_blank" download>CV</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-left">
+    <h1>
+      Building<br>
+      <span>reliable systems</span><br>
+      that scale
+    </h1>
+
+    <div class="typing">
+      I am a <span id="typing-text"></span><span class="cursor">|</span>
+    </div>
+
+    <p class="hero-text">
+      Network and Security Engineering student focused on building dependable technology,
+      improving operational efficiency, and delivering practical automation solutions
+      across software and infrastructure environments.
+    </p>
+
+    <div class="hero-actions">
+      <a class="primary" href="/Divan_Immelman_CV.pdf" target="_blank" download>Download CV</a>
+      <a class="secondary" href="#work">View Projects</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="shape blue"></div>
+    <div class="shape coral"></div>
+    <div class="shape yellow"></div>
+  </div>
+</section>
+
+<section id="work" class="work">
+  <div class="section-head">
+    <div class="stripe blue"></div>
+    <h2>Selected Work</h2>
+  </div>
+
+  <div class="work-grid">
+
+    <div class="work-card">
+      <h3>Modular Desktop OCR Platform</h3>
+      <p>Profile driven OCR pipelines with folder monitoring, automation, and configurable processing flows.</p>
+    </div>
+
+    <div class="work-card offset coral-bg">
+      <h3>OCR Document Web Dashboard</h3>
+      <p>Web interface for viewing processed documents, validating results, and managing OCR workflows.</p>
+    </div>
+
+    <div class="work-card yellow-bg">
+      <h3>Warehouse Label Generator</h3>
+      <p>Real time printable label generation with dynamic barcode scaling and layout accuracy.</p>
+    </div>
+
+    <div class="work-card offset mint-bg">
+      <h3>Self Hosted Infrastructure Lab</h3>
+      <p>Proxmox virtualization, Docker services, reverse proxy routing, firewall segmentation, and monitoring.</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="skills" class="skills">
+  <div class="section-head">
+    <div class="stripe coral"></div>
+    <h2>Skills</h2>
+  </div>
+
+  <div class="skill-grid">
+    <div class="skill-block blue-bg">
+      <h4>Development</h4>
+      <span>Python</span>
+      <span>REST APIs</span>
+      <span>OCR Pipelines</span>
+      <span>Web Interfaces</span>
+    </div>
+
+    <div class="skill-block coral-bg">
+      <h4>Networking</h4>
+      <span>TCP/IP</span>
+      <span>Routing</span>
+      <span>VLANs</span>
+      <span>MikroTik</span>
+    </div>
+
+    <div class="skill-block yellow-bg">
+      <h4>Systems</h4>
+      <span>Linux</span>
+      <span>Windows Server</span>
+      <span>Proxmox</span>
+      <span>VMware</span>
+    </div>
+
+    <div class="skill-block mint-bg">
+      <h4>Automation</h4>
+      <span>Python Automation</span>
+      <span>PowerShell</span>
+      <span>Scheduling</span>
+    </div>
+
+    <div class="skill-block gray-bg">
+      <h4>Security</h4>
+      <span>Firewalls</span>
+      <span>Access Control</span>
+      <span>Hardening</span>
+    </div>
+
+    <div class="skill-block blue-bg">
+      <h4>Tools</h4>
+      <span>Docker</span>
+      <span>NGINX</span>
+      <span>GitHub</span>
+      <span>VS Code</span>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <div class="section-head">
+    <div class="stripe yellow"></div>
+    <h2>About Me</h2>
+  </div>
+
+  <p>
+    Hands on engineering student with experience across automation, infrastructure, and real world
+    IT operations. You enjoy understanding how systems behave end to end, identifying inefficiencies,
+    and improving reliability through disciplined design and thoughtful execution. You value clean
+    architecture, predictable behavior, and solutions that scale responsibly.
+  </p>
+</section>
+
+<section id="contact" class="contact">
+  <div class="contact-card">
+    <h2>Let’s Connect</h2>
+    <p>Have a project, opportunity, or problem worth solving. Reach out.</p>
+
+    <form id="contactForm">
+      <input name="name" placeholder="Name" required>
+      <input name="email" type="email" placeholder="Email" required>
+      <input name="subject" placeholder="Subject" required>
+      <textarea name="message" placeholder="Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  © 2026 Divan Immelman
+</footer>
+
+<div id="toast" class="toast"></div>
+
+<script>
+const titles = [
+  "Automation Engineer",
+  "Infrastructure Builder",
+  "System Administrator",
+  "Security Focused Technologist"
+];
+
+let wordIndex = 0;
+let charIndex = 0;
+let deleting = false;
+
+const typingTarget = document.getElementById("typing-text");
+
+function typingLoop() {
+  const word = titles[wordIndex];
+
+  if (!deleting) {
+    typingTarget.textContent = word.slice(0, charIndex + 1);
+    charIndex++;
+    if (charIndex === word.length) {
+      setTimeout(() => deleting = true, 1200);
+    }
+  } else {
+    typingTarget.textContent = word.slice(0, charIndex - 1);
+    charIndex--;
+    if (charIndex === 0) {
+      deleting = false;
+      wordIndex = (wordIndex + 1) % titles.length;
+    }
+  }
+
+  setTimeout(typingLoop, deleting ? 50 : 80);
+}
+
+typingLoop();
+
+const form = document.getElementById("contactForm");
+const toast = document.getElementById("toast");
+
+function showToast(message, success = true) {
+  toast.textContent = message;
+  toast.className = "toast show " + (success ? "success" : "error");
+  setTimeout(() => toast.className = "toast", 3000);
+}
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  showToast("Sending message");
+
+  const data = Object.fromEntries(new FormData(form));
+
+  try {
+    const response = await fetch("https://contact-worker.divanimm123.workers.dev", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    });
+
+    if (response.ok) {
+      showToast("Message sent successfully");
+      form.reset();
+    } else {
+      showToast("Message failed", false);
+    }
+  } catch {
+    showToast("Network error", false);
+  }
+});
+</script>
+
+</body>
+</html>
