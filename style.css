@@ -427,7 +427,7 @@ body.light .card {
     position: absolute;
     right: 24px;
     background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.12);
+    border: none;
     border-radius: 50%;
     width: 42px;
     height: 42px;
@@ -440,12 +440,18 @@ body.light .card {
 .theme-toggle img {
     width: 20px;
     height: 20px;
-    filter: invert(1);
+    filter: brightness(0) invert(1);
 }
 
 body.light .theme-toggle img {
-    filter: invert(0);
+    filter: brightness(0);
 }
+
+.theme-toggle:hover {
+    background: rgba(255,255,255,0.15);
+}
+
+
 
 /* LIGHT MODE OVERRIDES */
 
