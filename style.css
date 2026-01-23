@@ -426,9 +426,8 @@ body.light .card {
 .theme-toggle {
     position: absolute;
     right: 24px;
-    background: rgba(255,255,255,0.08);
+    background: transparent;
     border: none;
-    border-radius: 50%;
     width: 42px;
     height: 42px;
     cursor: pointer;
@@ -436,6 +435,7 @@ body.light .card {
     align-items: center;
     justify-content: center;
 }
+
 
 .theme-toggle img {
     width: 20px;
@@ -446,12 +446,6 @@ body.light .card {
 body.light .theme-toggle img {
     filter: brightness(0);
 }
-
-.theme-toggle:hover {
-    background: rgba(255,255,255,0.15);
-}
-
-
 
 /* LIGHT MODE OVERRIDES */
 
