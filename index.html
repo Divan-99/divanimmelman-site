@@ -18,7 +18,7 @@
     </nav>
 
     <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
-        <img id="themeIcon" src="icons/sun.svg" alt="Theme">
+        <img id="themeIcon" src="icons/sun.svg" alt="Theme Toggle">
     </button>
 </header>
 
@@ -164,7 +164,6 @@
     </div>
 
     <form class="contact-form" id="contactForm">
-
       <h3 class="form-title">Send Me a Message</h3>
       <p class="form-subtitle">I usually reply within 24 hours.</p>
     
@@ -197,10 +196,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function showToast(message, success = true) {
     toast.textContent = message;
     toast.className = "toast show " + (success ? "success" : "error");
-
-    setTimeout(() => {
-      toast.className = "toast";
-    }, 3200);
+    setTimeout(() => { toast.className = "toast"; }, 3200);
   }
 
   form.addEventListener("submit", async (e) => {
@@ -216,15 +212,11 @@ document.addEventListener("DOMContentLoaded", () => {
         body: JSON.stringify(data)
       });
 
-      if (response.ok) {
-        showToast("Message sent successfully");
-        form.reset();
-      } else {
-        showToast("Message failed. Try again.", false);
-      }
+      response.ok ? showToast("Message sent successfully") : showToast("Message failed", false);
+      if (response.ok) form.reset();
 
     } catch {
-      showToast("Network error. Try again.", false);
+      showToast("Network error", false);
     }
   });
 
@@ -237,32 +229,21 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  const titles = [
-    "Cybersecurity Enthusiast",
-    "System Administrator",
-    "Automation Developer",
-    "Support Engineer"
-  ];
-
+  const titles = ["Cybersecurity Enthusiast","System Administrator","Automation Developer","Support Engineer"];
   const typingText = document.getElementById("typing-text");
-  let titleIndex = 0;
-  let charIndex = 0;
-  let isDeleting = false;
+  let titleIndex = 0, charIndex = 0, isDeleting = false;
 
   function typeLoop() {
     const current = titles[titleIndex];
+    typingText.textContent = isDeleting 
+      ? current.slice(0, --charIndex) 
+      : current.slice(0, ++charIndex);
 
-    if (!isDeleting) {
-      typingText.textContent = current.slice(0, ++charIndex);
-      if (charIndex === current.length) {
-        setTimeout(() => isDeleting = true, 1200);
-      }
-    } else {
-      typingText.textContent = current.slice(0, --charIndex);
-      if (charIndex === 0) {
-        isDeleting = false;
-        titleIndex = (titleIndex + 1) % titles.length;
-      }
+    if (!isDeleting && charIndex === current.length) {
+      setTimeout(() => isDeleting = true, 1200);
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      titleIndex = (titleIndex + 1) % titles.length;
     }
 
     setTimeout(typeLoop, isDeleting ? 50 : 80);
@@ -279,12 +260,10 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("theme", isLight ? "light" : "dark");
   }
 
-  const savedTheme = localStorage.getItem("theme");
-  setTheme(savedTheme === "light");
+  setTheme(localStorage.getItem("theme") === "light");
 
   toggle.addEventListener("click", () => {
-    const isLight = document.body.classList.contains("light");
-    setTheme(!isLight);
+    setTheme(!document.body.classList.contains("light"));
   });
 
 });
