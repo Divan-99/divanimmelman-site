@@ -256,7 +256,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function setTheme(isLight) {
     document.body.classList.toggle("light", isLight);
-    icon.src = isLight ? "icons/moon.svg" : "icons/sun.svg";
+    icon.src = isLight ? "assets/moon.svg" : "assets/sun.svg";
     localStorage.setItem("theme", isLight ? "light" : "dark");
   }
 
