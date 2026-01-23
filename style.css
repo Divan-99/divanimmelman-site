@@ -271,6 +271,18 @@ body {
     gap: 14px;
 }
 
+.form-title {
+    margin-bottom: 6px;
+    font-size: 1.2rem;
+}
+
+.form-subtitle {
+    margin-bottom: 22px;
+    font-size: 13px;
+    color: #b9c0cc;
+    text-align: center;
+}
+
 .contact-form button {
     width: 100%;
     padding: 15px;
