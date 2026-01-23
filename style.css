@@ -189,7 +189,7 @@ body {
 .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 70px;
+    gap: 50px;
     align-items: stretch;
 }
 
@@ -197,7 +197,7 @@ body {
 .contact-form {
     background: rgba(255, 255, 255, 0.03);
     border-radius: 20px;
-    padding: 46px;
+    padding: 36px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -272,12 +272,12 @@ body {
 }
 
 .form-title {
-    margin-bottom: 6px;
+    margin-bottom: 2px;
     font-size: 1.2rem;
 }
 
 .form-subtitle {
-    margin-bottom: 22px;
+    margin-bottom: 14px;
     font-size: 13px;
     color: #b9c0cc;
     text-align: center;
@@ -292,6 +292,7 @@ body {
     color: #fff;
     font-weight: 600;
     cursor: pointer;
+    margin-top: 8px;
 }
 
 footer {
