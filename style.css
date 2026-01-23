@@ -421,3 +421,61 @@ body.light .card {
     background: rgba(0,0,0,0.05);
 }
 
+/* THEME TOGGLE */
+
+.theme-toggle {
+    position: absolute;
+    right: 24px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggle img {
+    width: 18px;
+    height: 18px;
+    filter: invert(1);
+}
+
+body.light .theme-toggle img {
+    filter: invert(0);
+}
+
+/* LIGHT MODE OVERRIDES */
+
+body.light {
+    background: #f3f5f9;
+    color: #0f1220;
+}
+
+body.light .nav {
+    background: rgba(255,255,255,0.85);
+}
+
+body.light .nav a {
+    color: #0f1220;
+}
+
+body.light .glass,
+body.light .contact-info,
+body.light .contact-form {
+    background: rgba(0,0,0,0.03);
+}
+
+body.light .subtitle,
+body.light .contact-subtitle,
+body.light .center-text,
+body.light .contact-info p {
+    color: #3a3f55;
+}
+
+body.light .skills span,
+body.light .card {
+    background: rgba(0,0,0,0.05);
+}
