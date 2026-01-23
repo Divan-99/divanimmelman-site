@@ -18,13 +18,6 @@
     </nav>
 </header>
 
-
-<!-- ------------------------------------------------------------------------
-
-------------------------------------------------------------------------- -->
-
-
-
 <section class="hero">
     <h1>Hi, my name is <span>Divan Immelman</span></h1>
 
@@ -50,12 +43,6 @@
     </p>
 </section>
 
-
-<!-- ------------------------------------------------------------------------
-
-------------------------------------------------------------------------- -->
-
-
 <section id="projects" class="section">
     <div class="glass">
         <h2>Projects</h2>
@@ -75,14 +62,6 @@
         </div>
     </div>
 </section>
-
-
-
-<!-- ------------------------------------------------------------------------
-
-------------------------------------------------------------------------- -->
-
-
 
 <section id="skills" class="section">
     <div class="glass">
@@ -134,13 +113,6 @@
     </div>
 </section>
 
-
-<!-- ------------------------------------------------------------------------
-
-------------------------------------------------------------------------- -->
-
-
-
 <section id="contact" class="contact-section">
   <h2>Get In Touch</h2>
   <p class="contact-subtitle">
@@ -170,6 +142,21 @@
         <span>Status</span>
         <strong>Open to Opportunities</strong>
       </div>
+
+      <div class="social-links">
+        <a href="https://github.com/Divan-99" target="_blank" aria-label="GitHub">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/github.svg" alt="GitHub">
+        </a>
+
+        <a href="https://www.linkedin.com/in/divan-immelman-285546240/" target="_blank" aria-label="LinkedIn">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linkedin.svg" alt="LinkedIn">
+        </a>
+
+        <a href="mailto:divanimm123@gmail.com" aria-label="Email">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/gmail.svg" alt="Email">
+        </a>
+      </div>
+
     </div>
 
     <form class="contact-form" id="contactForm">
@@ -187,13 +174,6 @@
   </div>
 </section>
 
-
-<!-- ------------------------------------------------------------------------
-
-------------------------------------------------------------------------- -->
-
-
-
 <footer>
   © 2026 Divan Immelman. All rights reserved.
 </footer>
@@ -202,8 +182,6 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-
-  /* CONTACT FORM */
 
   const form = document.getElementById("contactForm");
   const toast = document.getElementById("toast");
@@ -243,8 +221,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  /* SKILLS TABS */
-
   document.querySelectorAll(".tab").forEach(button => {
     button.addEventListener("click", () => {
 
@@ -256,8 +232,6 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById(group).classList.add("active");
     });
   });
-
-  /* TYPING EFFECT */
 
   const titles = [
     "Cybersecurity Enthusiast",
