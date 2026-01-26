@@ -17,14 +17,11 @@
         <a href="#contact">Contact</a>
         <a href="/Divan_Immelman_CV.pdf" target="_blank">CV</a>
     </nav>
+
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+        <img id="themeIcon" src="assets/sun.svg" alt="Theme Toggle">
+    </button>
 </header>
-
-
-<!-- ------------------------------------------------------------------------
-
-------------------------------------------------------------------------- -->
-
-
 
 <section class="hero">
     <h1>Hi, my name is <span>Divan Immelman</span></h1>
@@ -51,12 +48,6 @@
     </p>
 </section>
 
-
-<!-- ------------------------------------------------------------------------
-
-------------------------------------------------------------------------- -->
-
-
 <section id="projects" class="section">
     <div class="glass">
         <h2>Projects</h2>
@@ -77,14 +68,6 @@
     </div>
 </section>
 
-
-
-<!-- ------------------------------------------------------------------------
-
-------------------------------------------------------------------------- -->
-
-
-
 <section id="skills" class="section">
     <div class="glass">
         <h2>Skills and Expertise</h2>
@@ -95,7 +78,6 @@
             <button class="tab" data-group="systems">Systems</button>
             <button class="tab" data-group="automation">Automation</button>
             <button class="tab" data-group="security">Security</button>
-            <button class="tab" data-group="tools">Tools</button>
         </div>
 
         <div class="skill-content">
@@ -136,13 +118,6 @@
     </div>
 </section>
 
-
-<!-- ------------------------------------------------------------------------
-
-------------------------------------------------------------------------- -->
-
-
-
 <section id="contact" class="contact-section">
   <h2>Get In Touch</h2>
   <p class="contact-subtitle">
@@ -172,11 +147,29 @@
         <span>Status</span>
         <strong>Open to Opportunities</strong>
       </div>
+
+      <div class="social-links">
+        <a href="https://github.com/Divan-99" target="_blank">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/github.svg">
+        </a>
+
+        <a href="https://www.linkedin.com/in/divan-immelman-285546240/" target="_blank">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linkedin.svg">
+        </a>
+
+        <a href="mailto:divanimm123@gmail.com">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/gmail.svg">
+        </a>
+      </div>
+
     </div>
 
     <form class="contact-form" id="contactForm">
+      <h3 class="form-title">Send Me a Message</h3>
+      <p class="form-subtitle">I usually reply within 24 hours.</p>
+    
       <div class="form-row">
-        <input type="text" name="name" placeholder="Name" required />
+        <input type="text" name="full_name" placeholder="Full Name" required />
         <input type="email" name="email" placeholder="Email" required />
       </div>
 
@@ -189,13 +182,6 @@
   </div>
 </section>
 
-
-<!-- ------------------------------------------------------------------------
-
-------------------------------------------------------------------------- -->
-
-
-
 <footer>
   © 2026 Divan Immelman. All rights reserved.
 </footer>
@@ -205,23 +191,17 @@
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* CONTACT FORM */
-
   const form = document.getElementById("contactForm");
   const toast = document.getElementById("toast");
 
   function showToast(message, success = true) {
     toast.textContent = message;
     toast.className = "toast show " + (success ? "success" : "error");
-
-    setTimeout(() => {
-      toast.className = "toast";
-    }, 3200);
+    setTimeout(() => { toast.className = "toast"; }, 3200);
   }
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
-
     showToast("Sending message...", true);
 
     const data = Object.fromEntries(new FormData(form));
@@ -233,75 +213,59 @@ document.addEventListener("DOMContentLoaded", () => {
         body: JSON.stringify(data)
       });
 
-      if (response.ok) {
-        showToast("Message sent successfully");
-        form.reset();
-      } else {
-        showToast("Message failed. Try again.", false);
-      }
+      response.ok ? showToast("Message sent successfully") : showToast("Message failed", false);
+      if (response.ok) form.reset();
 
     } catch {
-      showToast("Network error. Try again.", false);
+      showToast("Network error", false);
     }
   });
-
-  /* SKILLS TABS */
 
   document.querySelectorAll(".tab").forEach(button => {
     button.addEventListener("click", () => {
-
       document.querySelectorAll(".tab").forEach(b => b.classList.remove("active"));
       document.querySelectorAll(".skills").forEach(s => s.classList.remove("active"));
-
       button.classList.add("active");
-      const group = button.dataset.group;
-      document.getElementById(group).classList.add("active");
+      document.getElementById(button.dataset.group).classList.add("active");
     });
   });
 
-  /* TYPING EFFECT */
-
-  const titles = [
-    "Cybersecurity Enthusiast",
-    "System Administrator",
-    "Automation Developer",
-    "Support Engineer"
-  ];
-
+  const titles = ["Cybersecurity Enthusiast","System Administrator","Automation Developer","Support Engineer"];
   const typingText = document.getElementById("typing-text");
-
-  let titleIndex = 0;
-  let charIndex = 0;
-  let isDeleting = false;
-
-  const typingSpeed = 80;
-  const deletingSpeed = 50;
-  const pauseAfterTyping = 1200;
+  let titleIndex = 0, charIndex = 0, isDeleting = false;
 
   function typeLoop() {
     const current = titles[titleIndex];
+    typingText.textContent = isDeleting 
+      ? current.slice(0, --charIndex) 
+      : current.slice(0, ++charIndex);
 
-    if (!isDeleting) {
-      typingText.textContent = current.slice(0, charIndex + 1);
-      charIndex++;
-
-      if (charIndex === current.length) {
-        setTimeout(() => isDeleting = true, pauseAfterTyping);
-      }
-    } else {
-      typingText.textContent = current.slice(0, charIndex - 1);
-      charIndex--;
-
-      if (charIndex === 0) {
-        isDeleting = false;
-        titleIndex = (titleIndex + 1) % titles.length;
-      }
+    if (!isDeleting && charIndex === current.length) {
+      setTimeout(() => isDeleting = true, 1200);
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      titleIndex = (titleIndex + 1) % titles.length;
     }
 
-    setTimeout(typeLoop, isDeleting ? deletingSpeed : typingSpeed);
+    setTimeout(typeLoop, isDeleting ? 50 : 80);
   }
 
   typeLoop();
+
+  const toggle = document.getElementById("themeToggle");
+  const icon = document.getElementById("themeIcon");
+
+  function setTheme(isLight) {
+    document.body.classList.toggle("light", isLight);
+    icon.src = isLight ? "assets/moon.svg" : "assets/sun.svg";
+    localStorage.setItem("theme", isLight ? "light" : "dark");
+  }
+
+  setTheme(localStorage.getItem("theme") === "light");
+
+  toggle.addEventListener("click", () => {
+    setTheme(!document.body.classList.contains("light"));
+  });
 
 });
 </script>
