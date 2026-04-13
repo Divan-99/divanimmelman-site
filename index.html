@@ -4,406 +4,460 @@
   <meta charset="UTF-8">
   <title>Divan Immelman — Network & Security Engineer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Divan Immelman — Network and Security Engineering student based in Johannesburg, South Africa.">
+  <meta name="description" content="Divan Immelman — Network and Security Engineering student. Systems Administration, Automation, and Infrastructure.">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<!-- ─── NAV ─────────────────────────────────────────────────────── -->
+<div class="noise" aria-hidden="true"></div>
+
+<!-- NAV -->
 <header class="nav" id="nav">
-  <a href="#" class="nav-logo">DI<span class="accent">.</span></a>
+  <a href="#" class="nav-logo">DI<span>.</span></a>
   <nav class="nav-links">
     <a href="#about">About</a>
     <a href="#projects">Projects</a>
     <a href="#skills">Skills</a>
     <a href="#contact">Contact</a>
-    <a href="/Divan_Immelman_CV.pdf" target="_blank" class="nav-cv">CV <span class="nav-cv-arrow">↗</span></a>
+    <a href="/Divan_Immelman_CV.pdf" target="_blank" class="nav-cv">Download CV ↗</a>
   </nav>
-  <button id="themeToggle" class="theme-btn" aria-label="Toggle theme">
-    <span class="theme-icon sun">☀</span>
-    <span class="theme-icon moon">☾</span>
-  </button>
-  <button class="nav-hamburger" id="hamburger" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <div class="nav-right">
+    <button id="themeToggle" class="theme-btn" aria-label="Toggle theme">
+      <span class="sun-icon">☀</span><span class="moon-icon">☾</span>
+    </button>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </header>
 
-<!-- Mobile menu -->
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#about" class="mm-link">About</a>
-  <a href="#projects" class="mm-link">Projects</a>
-  <a href="#skills" class="mm-link">Skills</a>
-  <a href="#contact" class="mm-link">Contact</a>
-  <a href="/Divan_Immelman_CV.pdf" target="_blank" class="mm-link">CV ↗</a>
+  <a href="#about">About</a>
+  <a href="#projects">Projects</a>
+  <a href="#skills">Skills</a>
+  <a href="#contact">Contact</a>
+  <a href="/Divan_Immelman_CV.pdf" target="_blank">Download CV ↗</a>
 </div>
 
-<!-- ─── HERO ──────────────────────────────────────────────────────── -->
+<!-- HERO -->
 <section class="hero">
-  <div class="hero-grid-bg" aria-hidden="true"></div>
+  <canvas id="particleCanvas" aria-hidden="true"></canvas>
 
-  <div class="hero-inner">
-    <div class="hero-tag"><span class="dot"></span> Available for opportunities</div>
+  <div class="hero-content">
+    <div class="hero-chip">
+      <span class="chip-dot"></span>
+      Open to full-time &amp; internship roles
+    </div>
 
     <h1 class="hero-name">
-      <span class="hero-first">Divan</span>
-      <span class="hero-last">Immelman</span>
+      <span class="name-line" style="animation-delay:0ms">Divan</span>
+      <span class="name-line name-accent" style="animation-delay:60ms">Immelman</span>
     </h1>
 
-    <div class="hero-role">
-      <span class="role-prefix">—</span>
-      <span id="typing-text" class="role-text"></span><span class="cursor">_</span>
+    <div class="hero-role" style="animation-delay:160ms">
+      <span class="role-dash">—</span>
+      <span id="typing-text"></span><span class="cursor">_</span>
     </div>
 
-    <p class="hero-bio">
-      Network and Security Engineering student. I build dependable systems,
-      automate what should be automated, and care deeply about how things work
-      end to end.
+    <p class="hero-bio" style="animation-delay:260ms">
+      I design and maintain networks, automate the tedious, and build infrastructure
+      that actually stays up. Studying BSc Network &amp; Security Engineering at Eduvos —
+      and looking for the team where I can do my best work.
     </p>
 
-    <div class="hero-actions">
-      <a href="#contact" class="btn-primary">Get in touch</a>
-      <a href="#projects" class="btn-ghost">View work</a>
+    <div class="hero-ctas" style="animation-delay:360ms">
+      <a href="#contact" class="cta-primary">Let's talk <span>→</span></a>
+      <a href="#projects" class="cta-ghost">View projects</a>
     </div>
   </div>
 
-  <div class="hero-meta" aria-hidden="true">
-    <div class="meta-item"><span class="meta-label">Based in</span><span class="meta-value">Johannesburg, ZA</span></div>
-    <div class="meta-item"><span class="meta-label">Studying</span><span class="meta-value">BSc IT — Security & Networks</span></div>
-    <div class="meta-item"><span class="meta-label">Languages</span><span class="meta-value">EN · AF</span></div>
+  <div class="hero-tech-tags" aria-hidden="true">
+    <div class="tech-tag tt1">TCP/IP</div>
+    <div class="tech-tag tt2">Python</div>
+    <div class="tech-tag tt3">MikroTik</div>
+    <div class="tech-tag tt4">Linux</div>
+    <div class="tech-tag tt5">Firewalls</div>
+  </div>
+
+  <div class="hero-scroll-hint" aria-hidden="true">
+    <span>scroll</span>
+    <div class="scroll-bar"></div>
   </div>
 </section>
 
-<!-- ─── ABOUT ─────────────────────────────────────────────────────── -->
-<section id="about" class="section about-section">
-  <div class="section-label">01 / About</div>
-  <div class="about-grid">
-    <div class="about-left">
-      <h2 class="section-heading">A practical engineer<br>who thinks end to end.</h2>
+<!-- ABOUT -->
+<section id="about" class="about-section">
+  <div class="about-inner">
+    <div class="about-left sr">
+      <div class="eyebrow">01 — About</div>
+      <h2 class="about-heading">
+        I turn messy<br>
+        <em>infrastructure</em><br>
+        into clean systems.
+      </h2>
+      <a href="/Divan_Immelman_CV.pdf" target="_blank" class="text-link">
+        View full CV ↗
+      </a>
     </div>
+
     <div class="about-right">
-      <p>
-        Hands-on engineering student with experience across software, infrastructure,
-        and automation projects. I enjoy understanding how systems work end to end,
-        identifying inefficiencies, and improving reliability through clean design
-        and disciplined execution.
+      <p class="body-lg sr" style="--sd:0ms">
+        Hands-on engineering student with real internship experience at
+        <strong>Iscar South Africa</strong>, where I supported 20+ users,
+        configured routers and switches, and helped the IT team improve
+        how they operate day to day.
       </p>
-      <p>
-        I value practical solutions, continuous learning, and building technology
-        that is easy to maintain, scale, and operate in real-world environments.
-        Currently interning at Iscar South Africa as a Systems Administrator while
-        completing my degree.
+      <p class="body-reg sr" style="--sd:80ms">
+        I care deeply about how systems work end to end. I find inefficiencies,
+        fix them, and document the solution so it doesn't happen again. I'm
+        looking for a team that values reliability, ownership, and engineers who
+        understand what's actually running under the hood.
       </p>
-      <div class="about-stats">
-        <div class="stat"><span class="stat-num">20+</span><span class="stat-label">Users supported</span></div>
-        <div class="stat"><span class="stat-num">3+</span><span class="stat-label">Projects shipped</span></div>
-        <div class="stat"><span class="stat-num">2026</span><span class="stat-label">Graduating</span></div>
+
+      <div class="stats-grid sr" style="--sd:160ms">
+        <div class="stat-box">
+          <div class="stat-val"><span class="counter" data-to="20">0</span><span>+</span></div>
+          <div class="stat-lbl">Users supported daily</div>
+        </div>
+        <div class="stat-box stat-highlight">
+          <div class="stat-val"><span class="counter" data-to="3">0</span></div>
+          <div class="stat-lbl">Projects shipped</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val"><span class="counter" data-to="2">0</span></div>
+          <div class="stat-lbl">Qualifications earned</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val"><span class="counter" data-to="4">0</span><span>+</span></div>
+          <div class="stat-lbl">Years of self-learning</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── PROJECTS ──────────────────────────────────────────────────── -->
-<section id="projects" class="section projects-section">
-  <div class="section-label">02 / Projects</div>
-  <h2 class="section-heading">Selected work.</h2>
+<!-- PROJECTS -->
+<section id="projects" class="projects-section">
+  <div class="projects-inner">
+    <div class="eyebrow sr">02 — Projects</div>
+    <div class="projects-top sr">
+      <h2 class="projects-heading">Things I've built.</h2>
+      <p class="projects-sub">Real tools. Real problems solved. All in production.</p>
+    </div>
 
-  <div class="projects-list">
+    <div class="project-list">
 
-    <article class="project-item">
-      <div class="project-num">001</div>
-      <div class="project-body">
-        <h3 class="project-title">Modular Desktop OCR Platform</h3>
-        <p class="project-desc">
-          Configurable OCR system built with Python and PySide6. Features real-time
-          folder monitoring, automated text extraction, and batch PDF processing —
-          deployed on Windows to handle hundreds of documents automatically.
-        </p>
-        <div class="project-tags">
-          <span>Python</span><span>PySide6</span><span>OCR</span><span>Automation</span>
+      <article class="proj-item sr">
+        <div class="proj-meta">
+          <span class="proj-num">001</span>
+          <span class="proj-status">● Production</span>
         </div>
-      </div>
-      <div class="project-arrow">↗</div>
-    </article>
-
-    <article class="project-item">
-      <div class="project-num">002</div>
-      <div class="project-body">
-        <h3 class="project-title">Warehouse Label Generator</h3>
-        <p class="project-desc">
-          Web-based barcode and label generation system for warehouse operations.
-          Streamlines the creation and printing of inventory labels at scale.
-        </p>
-        <div class="project-tags">
-          <span>Web App</span><span>Barcodes</span><span>Operations</span>
-        </div>
-      </div>
-      <div class="project-arrow">↗</div>
-    </article>
-
-    <article class="project-item">
-      <div class="project-num">003</div>
-      <div class="project-body">
-        <h3 class="project-title">Document Management Dashboard</h3>
-        <p class="project-desc">
-          Internal portal for browsing and managing company files. Built to improve
-          document accessibility and reduce time spent locating critical resources.
-        </p>
-        <div class="project-tags">
-          <span>Dashboard</span><span>File Management</span><span>Web</span>
-        </div>
-      </div>
-      <div class="project-arrow">↗</div>
-    </article>
-
-  </div>
-</section>
-
-<!-- ─── SKILLS ────────────────────────────────────────────────────── -->
-<section id="skills" class="section skills-section">
-  <div class="section-label">03 / Skills</div>
-  <h2 class="section-heading">What I work with.</h2>
-
-  <div class="skills-grid">
-
-    <div class="skill-group">
-      <div class="skill-group-label">Development</div>
-      <ul>
-        <li>Python</li>
-        <li>Git</li>
-        <li>HTML5 / CSS</li>
-        <li>PyTorch</li>
-      </ul>
-    </div>
-
-    <div class="skill-group">
-      <div class="skill-group-label">Networking</div>
-      <ul>
-        <li>TCP/IP</li>
-        <li>Routing & VLANs</li>
-        <li>MikroTik</li>
-        <li>DNS / NAT</li>
-      </ul>
-    </div>
-
-    <div class="skill-group">
-      <div class="skill-group-label">Systems</div>
-      <ul>
-        <li>Linux</li>
-        <li>Windows Server</li>
-        <li>Active Directory</li>
-        <li>VMware</li>
-      </ul>
-    </div>
-
-    <div class="skill-group">
-      <div class="skill-group-label">Automation</div>
-      <ul>
-        <li>Python Automation</li>
-        <li>PowerShell</li>
-        <li>OCR Pipelines</li>
-        <li>Folder Monitoring</li>
-      </ul>
-    </div>
-
-    <div class="skill-group">
-      <div class="skill-group-label">Security</div>
-      <ul>
-        <li>Firewalls</li>
-        <li>Access Control</li>
-        <li>Network Hardening</li>
-        <li>IoT Security</li>
-      </ul>
-    </div>
-
-    <div class="skill-group">
-      <div class="skill-group-label">Cloud & Other</div>
-      <ul>
-        <li>AWS (Foundational)</li>
-        <li>Cloudflare</li>
-        <li>Microsoft 365</li>
-        <li>IT Documentation</li>
-      </ul>
-    </div>
-
-  </div>
-</section>
-
-<!-- ─── CONTACT ───────────────────────────────────────────────────── -->
-<section id="contact" class="section contact-section">
-  <div class="section-label">04 / Contact</div>
-
-  <div class="contact-grid">
-    <div class="contact-left">
-      <h2 class="section-heading">Let's build<br>something reliable.</h2>
-      <p class="contact-intro">
-        Whether it's a project, a role, or a conversation about infrastructure —
-        I'm always open to a good one.
-      </p>
-
-      <div class="contact-details">
-        <a href="mailto:divanimm123@gmail.com" class="contact-line">
-          <span class="cl-label">Email</span>
-          <span class="cl-value">divanimm123@gmail.com <span class="cl-arrow">↗</span></span>
-        </a>
-        <div class="contact-line">
-          <span class="cl-label">Location</span>
-          <span class="cl-value">Johannesburg, South Africa</span>
-        </div>
-        <div class="contact-line highlight">
-          <span class="cl-label">Status</span>
-          <span class="cl-value"><span class="dot"></span> Open to Opportunities</span>
-        </div>
-      </div>
-
-      <div class="social-row">
-        <a href="https://github.com/Divan-99" target="_blank" class="social-link" aria-label="GitHub">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-          GitHub
-        </a>
-        <a href="https://www.linkedin.com/in/divan-immelman-285546240/" target="_blank" class="social-link" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          LinkedIn
-        </a>
-      </div>
-    </div>
-
-    <div class="contact-right">
-      <form class="contact-form" id="contactForm" novalidate>
-        <div class="form-row">
-          <div class="form-field">
-            <label for="full_name">Name</label>
-            <input type="text" id="full_name" name="full_name" placeholder="Your name" required>
-          </div>
-          <div class="form-field">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="your@email.com" required>
+        <div class="proj-body">
+          <h3 class="proj-title">Modular Desktop OCR Platform</h3>
+          <p class="proj-desc">
+            End-to-end document automation built from scratch. The platform watches folders
+            in real time, extracts text via OCR, and automatically renames and sorts hundreds
+            of PDFs — eliminating hours of manual handling per week.
+          </p>
+          <div class="proj-chips">
+            <span>Python</span><span>PySide6</span><span>OCR</span><span>Automation</span>
           </div>
         </div>
-        <div class="form-field">
-          <label for="subject">Subject</label>
-          <input type="text" id="subject" name="subject" placeholder="What's this about?" required>
+        <div class="proj-arrow">↗</div>
+      </article>
+
+      <article class="proj-item sr">
+        <div class="proj-meta">
+          <span class="proj-num">002</span>
+          <span class="proj-status">● Production</span>
         </div>
-        <div class="form-field">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" placeholder="Tell me more..." rows="5" required></textarea>
+        <div class="proj-body">
+          <h3 class="proj-title">Warehouse Label Generator</h3>
+          <p class="proj-desc">
+            Web-based barcode and label generation system for warehouse operations.
+            Reduced labelling errors and improved picking speed for warehouse staff
+            through a fast, reliable interface.
+          </p>
+          <div class="proj-chips">
+            <span>Web App</span><span>Barcodes</span><span>Operations</span>
+          </div>
         </div>
-        <button type="submit" class="btn-submit">
-          <span class="btn-text">Send message</span>
-          <span class="btn-arrow">→</span>
-        </button>
-      </form>
+        <div class="proj-arrow">↗</div>
+      </article>
+
+      <article class="proj-item sr">
+        <div class="proj-meta">
+          <span class="proj-num">003</span>
+          <span class="proj-status">● Internal Tool</span>
+        </div>
+        <div class="proj-body">
+          <h3 class="proj-title">Document Management Dashboard</h3>
+          <p class="proj-desc">
+            Internal portal that centralises company files and gives staff fast,
+            structured access to documents — replacing a chaotic shared drive
+            with a clean, searchable interface.
+          </p>
+          <div class="proj-chips">
+            <span>Dashboard</span><span>File Management</span><span>Web</span>
+          </div>
+        </div>
+        <div class="proj-arrow">↗</div>
+      </article>
+
     </div>
   </div>
 </section>
 
-<!-- ─── FOOTER ────────────────────────────────────────────────────── -->
+<!-- SKILLS -->
+<section id="skills" class="skills-section">
+  <div class="skills-inner">
+    <div class="eyebrow sr">03 — Skills</div>
+    <h2 class="skills-heading sr">What I bring<br>to the table.</h2>
+
+    <div class="bento sr">
+
+      <div class="bcard bcard--wide bcard--accent">
+        <div class="bcard-eye">Core Strength</div>
+        <h3>Networking &amp;<br>Infrastructure</h3>
+        <div class="bchips">
+          <span>TCP/IP</span><span>Routing</span><span>VLANs</span>
+          <span>MikroTik</span><span>DNS</span><span>NAT</span>
+          <span>Cisco</span><span>Switching</span>
+        </div>
+      </div>
+
+      <div class="bcard">
+        <div class="bcard-eye">Security</div>
+        <h3>Firewalls &amp;<br>Hardening</h3>
+        <div class="bchips">
+          <span>Firewalls</span><span>Access Control</span>
+          <span>Network Hardening</span><span>IoT Security</span>
+        </div>
+      </div>
+
+      <div class="bcard bcard--dark">
+        <div class="bcard-eye">Automation</div>
+        <h3>Code That<br>Works for You</h3>
+        <div class="bchips">
+          <span>Python</span><span>PowerShell</span>
+          <span>OCR Pipelines</span><span>Scripting</span>
+        </div>
+      </div>
+
+      <div class="bcard">
+        <div class="bcard-eye">Systems</div>
+        <h3>OS &amp; Servers</h3>
+        <div class="bchips">
+          <span>Linux</span><span>Windows Server</span>
+          <span>Active Directory</span><span>VMware</span>
+        </div>
+      </div>
+
+      <div class="bcard bcard--teal">
+        <div class="bcard-eye">Cloud</div>
+        <h3>Modern<br>Infrastructure</h3>
+        <div class="bchips">
+          <span>AWS</span><span>Cloudflare</span>
+          <span>Microsoft 365</span>
+        </div>
+      </div>
+
+      <div class="bcard">
+        <div class="bcard-eye">Development</div>
+        <h3>Build &amp;<br>Automate</h3>
+        <div class="bchips">
+          <span>Python</span><span>Git</span>
+          <span>HTML/CSS</span><span>PyTorch</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="contact-inner">
+    <div class="eyebrow sr">04 — Contact</div>
+
+    <div class="contact-layout">
+      <div class="contact-left sr">
+        <h2 class="contact-heading">
+          Ready to<br>contribute<br><em>from day one.</em>
+        </h2>
+        <p class="contact-sub">
+          Whether you're hiring, want to collaborate, or just want to talk
+          infrastructure — my inbox is always open.
+        </p>
+
+        <div class="cinfo">
+          <a href="mailto:divanimm123@gmail.com" class="cinfo-row">
+            <span class="cinfo-label">Email</span>
+            <span class="cinfo-val">divanimm123@gmail.com <span class="ci-arr">↗</span></span>
+          </a>
+          <div class="cinfo-row">
+            <span class="cinfo-label">Location</span>
+            <span class="cinfo-val">Johannesburg, South Africa</span>
+          </div>
+          <div class="cinfo-row cinfo-status">
+            <span class="cinfo-label">Status</span>
+            <span class="cinfo-val"><span class="s-dot"></span>Open to Opportunities</span>
+          </div>
+        </div>
+
+        <div class="socials">
+          <a href="https://github.com/Divan-99" target="_blank" class="spill">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+            GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/divan-immelman-285546240/" target="_blank" class="spill">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+          <a href="mailto:divanimm123@gmail.com" class="spill">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 010 19.366V5.457c0-.9.732-1.632 1.636-1.632h.749L12 10.09l9.615-6.265h.749A1.636 1.636 0 0124 5.457z"/></svg>
+            Email
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-right sr" style="--sd:120ms">
+        <form class="cform" id="contactForm" novalidate>
+          <div class="cform-head">
+            <span class="cform-title">Send a message</span>
+            <span class="cform-note">I reply within 24 hours.</span>
+          </div>
+          <div class="crow">
+            <div class="cfield">
+              <label for="full_name">Name</label>
+              <input type="text" id="full_name" name="full_name" placeholder="Your name" required>
+            </div>
+            <div class="cfield">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" required>
+            </div>
+          </div>
+          <div class="cfield">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="Job opportunity / Project / Other" required>
+          </div>
+          <div class="cfield">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell me what you have in mind..." rows="5" required></textarea>
+          </div>
+          <button type="submit" class="csubmit">
+            <span class="csubmit-text">Send message</span>
+            <span class="csubmit-arr">→</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer class="footer">
-  <span>© 2026 Divan Immelman</span>
-  <span class="footer-sep">·</span>
-  <span>Johannesburg, South Africa</span>
-  <span class="footer-sep">·</span>
+  <span class="footer-logo">DI<span>.</span></span>
+  <span>© 2026 Divan Immelman · Johannesburg, South Africa</span>
   <a href="/Divan_Immelman_CV.pdf" target="_blank">Download CV ↗</a>
 </footer>
 
 <div id="toast" class="toast" role="alert" aria-live="polite"></div>
 
-<!-- ─── SCRIPTS ───────────────────────────────────────────────────── -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
-  // ── Theme ──
+  // Theme
   const body = document.body;
-  const btn  = document.getElementById("themeToggle");
-
-  function setTheme(light) {
-    body.classList.toggle("light", light);
-    localStorage.setItem("theme", light ? "light" : "dark");
-  }
+  const themeBtn = document.getElementById("themeToggle");
+  const setTheme = l => { body.classList.toggle("light", l); localStorage.setItem("theme", l ? "light" : "dark"); };
   setTheme(localStorage.getItem("theme") === "light");
-  btn.addEventListener("click", () => setTheme(!body.classList.contains("light")));
+  themeBtn.addEventListener("click", () => setTheme(!body.classList.contains("light")));
 
-  // ── Hamburger ──
-  const ham  = document.getElementById("hamburger");
-  const menu = document.getElementById("mobileMenu");
-  ham.addEventListener("click", () => {
-    ham.classList.toggle("open");
-    menu.classList.toggle("open");
-  });
-  menu.querySelectorAll(".mm-link").forEach(l => {
-    l.addEventListener("click", () => { ham.classList.remove("open"); menu.classList.remove("open"); });
-  });
+  // Nav scroll
+  const navEl = document.getElementById("nav");
+  window.addEventListener("scroll", () => navEl.classList.toggle("scrolled", window.scrollY > 30), { passive: true });
 
-  // ── Sticky nav shadow ──
-  const nav = document.getElementById("nav");
-  window.addEventListener("scroll", () => {
-    nav.classList.toggle("scrolled", window.scrollY > 20);
-  });
+  // Hamburger
+  const ham = document.getElementById("hamburger");
+  const mm  = document.getElementById("mobileMenu");
+  ham.addEventListener("click", () => { ham.classList.toggle("open"); mm.classList.toggle("open"); });
+  mm.querySelectorAll("a").forEach(a => a.addEventListener("click", () => { ham.classList.remove("open"); mm.classList.remove("open"); }));
 
-  // ── Typing effect ──
-  const titles = ["Cybersecurity Enthusiast", "Systems Administrator", "Automation Developer", "Support Engineer"];
-  const el = document.getElementById("typing-text");
+  // Typing
+  const titles = ["Systems Administrator", "Automation Developer", "Network Engineer", "Security Enthusiast"];
+  const typingEl = document.getElementById("typing-text");
   let ti = 0, ci = 0, del = false;
-
-  function type() {
+  (function type() {
     const cur = titles[ti];
-    el.textContent = del ? cur.slice(0, --ci) : cur.slice(0, ++ci);
-    if (!del && ci === cur.length) { setTimeout(() => del = true, 1400); }
-    else if (del && ci === 0)     { del = false; ti = (ti + 1) % titles.length; }
-    setTimeout(type, del ? 45 : 75);
-  }
-  type();
+    typingEl.textContent = del ? cur.slice(0, --ci) : cur.slice(0, ++ci);
+    if (!del && ci === cur.length) setTimeout(() => del = true, 1600);
+    else if (del && ci === 0) { del = false; ti = (ti + 1) % titles.length; }
+    setTimeout(type, del ? 40 : 70);
+  })();
 
-  // ── Scroll reveal ──
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visible"); } });
-  }, { threshold: 0.1 });
-  document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+  // Scroll reveal
+  const sObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); sObs.unobserve(e.target); } });
+  }, { threshold: 0.07 });
+  document.querySelectorAll(".sr").forEach(el => sObs.observe(el));
 
-  // ── Contact form ──
-  const form  = document.getElementById("contactForm");
+  // Counters
+  const cObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target, target = +el.dataset.to;
+      let v = 0; const step = Math.max(1, Math.ceil(target / 25));
+      const t = setInterval(() => { v = Math.min(v + step, target); el.textContent = v; if (v >= target) clearInterval(t); }, 45);
+      cObs.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll(".counter").forEach(el => cObs.observe(el));
+
+  // Particles
+  const canvas = document.getElementById("particleCanvas");
+  const ctx = canvas.getContext("2d");
+  let W, H, pts = [];
+  const resize = () => { W = canvas.width = canvas.offsetWidth; H = canvas.height = canvas.offsetHeight; };
+  resize();
+  window.addEventListener("resize", resize, { passive: true });
+  for (let i = 0; i < 70; i++) pts.push({ x: Math.random()*1000, y: Math.random()*1000, vx: (Math.random()-.5)*.25, vy: (Math.random()-.5)*.25, a: Math.random()*.35+.08 });
+  (function draw() {
+    W = canvas.width = canvas.offsetWidth; H = canvas.height = canvas.offsetHeight;
+    ctx.clearRect(0,0,W,H);
+    const lm = body.classList.contains("light");
+    pts.forEach(p => {
+      p.x=(p.x+p.vx+W)%W; p.y=(p.y+p.vy+H)%H;
+      ctx.beginPath(); ctx.arc(p.x,p.y,1,0,6.28);
+      ctx.fillStyle=lm?`rgba(0,120,70,${p.a*.4})`:`rgba(0,229,160,${p.a})`;
+      ctx.fill();
+    });
+    for (let i=0;i<pts.length;i++) for (let j=i+1;j<pts.length;j++) {
+      const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
+      if (d<110) { ctx.beginPath(); ctx.moveTo(pts[i].x,pts[i].y); ctx.lineTo(pts[j].x,pts[j].y); ctx.strokeStyle=lm?`rgba(0,120,70,${.07*(1-d/110)})`:`rgba(0,229,160,${.13*(1-d/110)})`; ctx.lineWidth=.5; ctx.stroke(); }
+    }
+    requestAnimationFrame(draw);
+  })();
+
+  // Form
+  const form = document.getElementById("contactForm");
   const toast = document.getElementById("toast");
-
-  function showToast(msg, ok = true) {
-    toast.textContent = msg;
-    toast.className = "toast show " + (ok ? "success" : "error");
-    setTimeout(() => toast.className = "toast", 3400);
-  }
-
+  const showToast = (m, ok=true) => { toast.textContent=m; toast.className="toast show "+(ok?"ok":"err"); setTimeout(()=>toast.className="toast",3500); };
   form.addEventListener("submit", async e => {
     e.preventDefault();
-    const submitBtn = form.querySelector(".btn-submit");
-    submitBtn.classList.add("loading");
-    submitBtn.querySelector(".btn-text").textContent = "Sending...";
-
-    const data = Object.fromEntries(new FormData(form));
+    const btn = form.querySelector(".csubmit");
+    btn.classList.add("loading");
+    btn.querySelector(".csubmit-text").textContent = "Sending...";
     try {
-      const res = await fetch("https://contact-worker.divanimm123.workers.dev", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-      });
-      if (res.ok) {
-        showToast("Message sent — I'll be in touch soon.");
-        form.reset();
-      } else {
-        showToast("Something went wrong. Try emailing directly.", false);
-      }
-    } catch {
-      showToast("Network error. Try emailing directly.", false);
-    } finally {
-      submitBtn.classList.remove("loading");
-      submitBtn.querySelector(".btn-text").textContent = "Send message";
-    }
-  });
-
-  // ── Project items hover ──
-  document.querySelectorAll(".project-item").forEach(item => {
-    item.addEventListener("mouseenter", () => item.classList.add("hovered"));
-    item.addEventListener("mouseleave", () => item.classList.remove("hovered"));
+      const res = await fetch("https://contact-worker.divanimm123.workers.dev", { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(Object.fromEntries(new FormData(form))) });
+      res.ok ? (showToast("Message sent! I'll be in touch soon."), form.reset()) : showToast("Something went wrong. Email me directly.", false);
+    } catch { showToast("Network error. Email me directly.", false); }
+    btn.classList.remove("loading");
+    btn.querySelector(".csubmit-text").textContent = "Send message";
   });
 
 });
