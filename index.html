@@ -124,7 +124,7 @@
           <div class="stat-lbl">Users supported daily</div>
         </div>
         <div class="stat-box stat-highlight">
-          <div class="stat-val"><span class="counter" data-to="3">0</span></div>
+          <div class="stat-val"><span class="counter" data-to="4">0</span></div>
           <div class="stat-lbl">Projects shipped</div>
         </div>
         <div class="stat-box">
@@ -151,58 +151,89 @@
 
     <div class="project-list">
 
-      <article class="proj-item sr">
+      <article class="proj-item sr" onclick="window.open('https://github.com/Divan-99/OCR_System','_blank')" style="cursor:pointer">
         <div class="proj-meta">
           <span class="proj-num">001</span>
           <span class="proj-status">● Production</span>
         </div>
         <div class="proj-body">
-          <h3 class="proj-title">Modular Desktop OCR Platform</h3>
+          <h3 class="proj-title">Modular OCR System</h3>
           <p class="proj-desc">
-            End-to-end document automation built from scratch. The platform watches folders
-            in real time, extracts text via OCR, and automatically renames and sorts hundreds
-            of PDFs — eliminating hours of manual handling per week.
+            Configurable Python platform that extracts document numbers and barcodes
+            from PDFs automatically. Watches a folder, converts each PDF to an image,
+            runs OCR or barcode decoding over a defined region, and renames the file
+            with the extracted number — supporting delivery notes, purchase orders,
+            shipments, and picking slips via separate modular engines.
           </p>
           <div class="proj-chips">
-            <span>Python</span><span>PySide6</span><span>OCR</span><span>Automation</span>
+            <span>Python</span><span>EasyOCR</span><span>Tesseract</span>
+            <span>pyzbar</span><span>watchdog</span><span>pdf2image</span>
           </div>
         </div>
         <div class="proj-arrow">↗</div>
       </article>
 
-      <article class="proj-item sr">
+      <article class="proj-item sr" onclick="window.open('https://github.com/Divan-99/Label-printing-app','_blank')" style="cursor:pointer">
         <div class="proj-meta">
           <span class="proj-num">002</span>
           <span class="proj-status">● Production</span>
         </div>
         <div class="proj-body">
-          <h3 class="proj-title">Warehouse Label Generator</h3>
+          <h3 class="proj-title">Iscar Label Printing App</h3>
           <p class="proj-desc">
-            Web-based barcode and label generation system for warehouse operations.
-            Reduced labelling errors and improved picking speed for warehouse staff
-            through a fast, reliable interface.
+            Django web app deployed on the factory network at Iscar South Africa.
+            Staff search a product code, see a live label preview (code, description,
+            bin location, barcode), and hit Print — ZPL is sent directly to the
+            Honeywell PD45 network printer over TCP port 9100 with no browser dialog.
+            Product data is read from Excel and cached in memory.
           </p>
           <div class="proj-chips">
-            <span>Web App</span><span>Barcodes</span><span>Operations</span>
+            <span>Python</span><span>Django</span><span>ZPL</span>
+            <span>Pandas</span><span>OpenPyXL</span><span>TCP/IP</span>
           </div>
         </div>
         <div class="proj-arrow">↗</div>
       </article>
 
-      <article class="proj-item sr">
+      <article class="proj-item sr" onclick="window.open('https://github.com/Divan-99/Document-portal','_blank')" style="cursor:pointer">
         <div class="proj-meta">
           <span class="proj-num">003</span>
+          <span class="proj-status">● Production</span>
+        </div>
+        <div class="proj-body">
+          <h3 class="proj-title">Iscar Document Portal</h3>
+          <p class="proj-desc">
+            Internal HTTPS portal serving delivery notes, purchase orders, picking slips,
+            and shipments from network drives. Built with Django and Waitress on Windows,
+            reverse-proxied through Nginx on Ubuntu with SSL termination. Features live
+            AJAX search, path-traversal-safe downloads, and environment-based config —
+            deployed at <em>isdoc.sa.iscar.com</em> on the corporate LAN.
+          </p>
+          <div class="proj-chips">
+            <span>Python</span><span>Django</span><span>Nginx</span>
+            <span>Waitress</span><span>Linux</span><span>HTTPS</span>
+          </div>
+        </div>
+        <div class="proj-arrow">↗</div>
+      </article>
+
+      <article class="proj-item sr" onclick="window.open('https://github.com/Divan-99/process-dashboard','_blank')" style="cursor:pointer">
+        <div class="proj-meta">
+          <span class="proj-num">004</span>
           <span class="proj-status">● Internal Tool</span>
         </div>
         <div class="proj-body">
-          <h3 class="proj-title">Document Management Dashboard</h3>
+          <h3 class="proj-title">Process Control Dashboard</h3>
           <p class="proj-desc">
-            Internal portal that centralises company files and gives staff fast,
-            structured access to documents — replacing a chaotic shared drive
-            with a clean, searchable interface.
+            Django dashboard for monitoring and controlling all internal Django apps
+            and OCR scripts from a single browser tab. Polls process status every
+            5 seconds, streams live stdout logs, and exposes a REST API to start,
+            stop, and restart any registered process — with login-protected access
+            and Home Assistant integration for real-time status visibility.
           </p>
           <div class="proj-chips">
-            <span>Dashboard</span><span>File Management</span><span>Web</span>
+            <span>Python</span><span>Django</span><span>REST API</span>
+            <span>JavaScript</span><span>Home Assistant</span>
           </div>
         </div>
         <div class="proj-arrow">↗</div>
@@ -389,7 +420,7 @@ document.addEventListener("DOMContentLoaded", () => {
   mm.querySelectorAll("a").forEach(a => a.addEventListener("click", () => { ham.classList.remove("open"); mm.classList.remove("open"); }));
 
   // Typing
-  const titles = ["Systems Administrator", "Automation Developer", "Network Engineer", "Security Analyst"];
+  const titles = ["Systems Administrator", "Automation Developer", "Network Engineer", "Security Enthusiast"];
   const typingEl = document.getElementById("typing-text");
   let ti = 0, ci = 0, del = false;
   (function type() {
