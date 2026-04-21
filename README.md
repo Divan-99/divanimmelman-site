@@ -1,6 +1,6 @@
 <div align="center">
 
-  <img src="https://raw.githubusercontent.com/Divan-99/divanimmelman-site/main/favicon-32x32.png" width="64" />
+  <img src="https://raw.githubusercontent.com/Divan-99/divanimmelman-site/main/apple-touch-icon.png" width="64" />
 
   <h1>divanimmelman-site</h1>
 
