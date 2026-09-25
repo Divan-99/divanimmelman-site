@@ -1,10 +1,23 @@
+interface ContactEnv {
+  RESEND_API_KEY: string;
+}
+
 const ALLOWED_ORIGINS = [
   "https://divanimmelman.com",
   "https://www.divanimmelman.com"
 ];
 
-function escapeHtml(value: unknown) {
-  return String(value)
+const LIMITS = {
+  name: 100,
+  email: 254,
+  subject: 150,
+  message: 5000
+} as const;
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+function escapeHtml(value: string) {
+  return value
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
@@ -22,8 +35,29 @@ function cors(origin: string) {
   };
 }
 
+type Fields = { -readonly [K in keyof typeof LIMITS]: string };
+
+// Returns the cleaned fields, or an error message for the client.
+function validate(data: unknown): Fields | string {
+  if (typeof data !== "object" || data === null) return "Invalid payload";
+  const raw = data as Record<string, unknown>;
+  const fields = {} as Fields;
+
+  for (const key of Object.keys(LIMITS) as (keyof typeof LIMITS)[]) {
+    const value = raw[key];
+    if (typeof value !== "string" || !value.trim()) return "Missing fields";
+    if (value.length > LIMITS[key]) return `${key} is too long`;
+    fields[key] = value.trim();
+  }
+
+  if (!EMAIL_RE.test(fields.email)) return "Invalid email";
+  // The subject ends up in an email header, so keep it on one line.
+  fields.subject = fields.subject.replace(/[\r\n]+/g, " ");
+  return fields;
+}
+
 export default {
-  async fetch(request: Request, env: any) {
+  async fetch(request: Request, env: ContactEnv) {
 
     const origin = request.headers.get("Origin");
 
@@ -47,19 +81,27 @@ export default {
       });
     }
 
+    let data: unknown;
     try {
-      const data = await request.json();
-      console.log("Incoming payload:", data);
+      data = await request.json();
+    } catch {
+      return new Response("Invalid JSON", {
+        status: 400,
+        headers: corsHeaders
+      });
+    }
 
-      const { name, email, subject, message } = data;
+    const fields = validate(data);
+    if (typeof fields === "string") {
+      return new Response(fields, {
+        status: 400,
+        headers: corsHeaders
+      });
+    }
 
-      if (!name || !email || !subject || !message) {
-        return new Response("Missing fields", {
-          status: 400,
-          headers: corsHeaders
-        });
-      }
+    const { name, email, subject, message } = fields;
 
+    try {
       const resendResponse = await fetch("https://api.resend.com/emails", {
         method: "POST",
         headers: {
@@ -69,6 +111,7 @@ export default {
         body: JSON.stringify({
           from: "Divan Website <noreply@resend.dev>",
           to: ["divanimm123@gmail.com"],
+          reply_to: email,
           subject: `[Website] ${subject}`,
           html: `
             <h2>New Website Message</h2>
@@ -80,12 +123,11 @@ export default {
         })
       });
 
-      console.log("Resend status:", resendResponse.status);
-
       if (!resendResponse.ok) {
-        const err = await resendResponse.text();
-        return new Response(err, {
-          status: 500,
+        // Keep Resend's error details in the logs, not in the response.
+        console.error("Resend error:", resendResponse.status, await resendResponse.text());
+        return new Response("Could not send message", {
+          status: 502,
           headers: corsHeaders
         });
       }
@@ -102,7 +144,7 @@ export default {
       );
 
     } catch (err) {
-      console.log("Worker error:", err);
+      console.error("Worker error:", err);
       return new Response("Server error", {
         status: 500,
         headers: corsHeaders
