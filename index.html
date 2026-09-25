@@ -5,6 +5,14 @@
   <title>Divan Immelman — Network & Security Engineer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Divan Immelman — Network and Security Engineering student. Systems Administration, Automation, and Infrastructure.">
+  <meta name="color-scheme" content="dark light">
+  <script>
+    try {
+      var saved = localStorage.getItem("theme");
+      var light = saved ? saved === "light" : matchMedia("(prefers-color-scheme: light)").matches;
+      if (light) document.documentElement.classList.add("light");
+    } catch (e) {}
+  </script>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -25,25 +33,25 @@
     <a href="#projects">Projects</a>
     <a href="#skills">Skills</a>
     <a href="#contact">Contact</a>
-    <a href="/Divan_Immelman_CV.pdf" target="_blank" class="nav-cv">Download CV ↗</a>
+    <a href="/Divan_Immelman_CV.pdf" target="_blank" rel="noopener" class="nav-cv">Download CV ↗</a>
   </nav>
   <div class="nav-right">
     <button id="themeToggle" class="theme-btn" aria-label="Toggle theme">
       <span class="sun-icon">☀</span><span class="moon-icon">☾</span>
     </button>
-    <button class="hamburger" id="hamburger" aria-label="Menu">
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
       <span></span><span></span><span></span>
     </button>
   </div>
 </header>
 
-<div class="mobile-menu" id="mobileMenu">
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
   <a href="#about">About</a>
   <a href="#projects">Projects</a>
   <a href="#skills">Skills</a>
   <a href="#contact">Contact</a>
-  <a href="/Divan_Immelman_CV.pdf" target="_blank">Download CV ↗</a>
-</div>
+  <a href="/Divan_Immelman_CV.pdf" target="_blank" rel="noopener">Download CV ↗</a>
+</nav>
 
 <!-- HERO -->
 <section class="hero">
@@ -101,7 +109,7 @@
         <em>infrastructure</em><br>
         into clean systems.
       </h2>
-      <a href="/Divan_Immelman_CV.pdf" target="_blank" class="text-link">
+      <a href="/Divan_Immelman_CV.pdf" target="_blank" rel="noopener" class="text-link">
         View full CV ↗
       </a>
     </div>
@@ -153,13 +161,13 @@
 
     <div class="project-list">
 
-      <article class="proj-item sr" onclick="window.open('https://github.com/Divan-99/OCR_System','_blank')" style="cursor:pointer">
+      <article class="proj-item sr">
         <div class="proj-meta">
           <span class="proj-num">001</span>
           <span class="proj-status">● Production</span>
         </div>
         <div class="proj-body">
-          <h3 class="proj-title">Modular OCR System</h3>
+          <h3 class="proj-title"><a href="https://github.com/Divan-99/OCR_System" target="_blank" rel="noopener" class="proj-link">Modular OCR System</a></h3>
           <p class="proj-desc">
             Configurable Python platform that extracts document numbers and barcodes
             from PDFs automatically. Watches a folder, converts each PDF to an image,
@@ -172,16 +180,16 @@
             <span>pyzbar</span><span>watchdog</span><span>pdf2image</span>
           </div>
         </div>
-        <div class="proj-arrow">↗</div>
+        <div class="proj-arrow" aria-hidden="true">↗</div>
       </article>
 
-      <article class="proj-item sr" onclick="window.open('https://github.com/Divan-99/Label-printing-app','_blank')" style="cursor:pointer">
+      <article class="proj-item sr">
         <div class="proj-meta">
           <span class="proj-num">002</span>
           <span class="proj-status">● Production</span>
         </div>
         <div class="proj-body">
-          <h3 class="proj-title">Iscar Label Printing App</h3>
+          <h3 class="proj-title"><a href="https://github.com/Divan-99/Label-printing-app" target="_blank" rel="noopener" class="proj-link">Iscar Label Printing App</a></h3>
           <p class="proj-desc">
             Django web app deployed on the factory network at Iscar South Africa.
             Staff search a product code, see a live label preview (code, description,
@@ -194,16 +202,16 @@
             <span>Pandas</span><span>OpenPyXL</span><span>TCP/IP</span>
           </div>
         </div>
-        <div class="proj-arrow">↗</div>
+        <div class="proj-arrow" aria-hidden="true">↗</div>
       </article>
 
-      <article class="proj-item sr" onclick="window.open('https://github.com/Divan-99/Document-portal','_blank')" style="cursor:pointer">
+      <article class="proj-item sr">
         <div class="proj-meta">
           <span class="proj-num">003</span>
           <span class="proj-status">● Production</span>
         </div>
         <div class="proj-body">
-          <h3 class="proj-title">Iscar Document Portal</h3>
+          <h3 class="proj-title"><a href="https://github.com/Divan-99/Document-portal" target="_blank" rel="noopener" class="proj-link">Iscar Document Portal</a></h3>
           <p class="proj-desc">
             Internal HTTPS portal serving delivery notes, purchase orders, picking slips,
             and shipments from network drives. Built with Django and Waitress on Windows,
@@ -216,16 +224,16 @@
             <span>Waitress</span><span>Linux</span><span>HTTPS</span>
           </div>
         </div>
-        <div class="proj-arrow">↗</div>
+        <div class="proj-arrow" aria-hidden="true">↗</div>
       </article>
 
-      <article class="proj-item sr" onclick="window.open('https://github.com/Divan-99/process-dashboard','_blank')" style="cursor:pointer">
+      <article class="proj-item sr">
         <div class="proj-meta">
           <span class="proj-num">004</span>
           <span class="proj-status">● Internal Tool</span>
         </div>
         <div class="proj-body">
-          <h3 class="proj-title">Process Control Dashboard</h3>
+          <h3 class="proj-title"><a href="https://github.com/Divan-99/process-dashboard" target="_blank" rel="noopener" class="proj-link">Process Control Dashboard</a></h3>
           <p class="proj-desc">
             Django dashboard for monitoring and controlling all internal Django apps
             and OCR scripts from a single browser tab. Polls process status every
@@ -238,7 +246,7 @@
             <span>JavaScript</span><span>Home Assistant</span>
           </div>
         </div>
-        <div class="proj-arrow">↗</div>
+        <div class="proj-arrow" aria-hidden="true">↗</div>
       </article>
 
     </div>
@@ -343,23 +351,23 @@
         </div>
 
         <div class="socials">
-          <a href="https://github.com/Divan-99" target="_blank" class="spill">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          <a href="https://github.com/Divan-99" target="_blank" rel="noopener" class="spill">
+            <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
             GitHub
           </a>
-          <a href="https://www.linkedin.com/in/divan-immelman-285546240/" target="_blank" class="spill">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          <a href="https://www.linkedin.com/in/divan-immelman-285546240/" target="_blank" rel="noopener" class="spill">
+            <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
             LinkedIn
           </a>
           <a href="mailto:divanimm123@gmail.com" class="spill">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 010 19.366V5.457c0-.9.732-1.632 1.636-1.632h.749L12 10.09l9.615-6.265h.749A1.636 1.636 0 0124 5.457z"/></svg>
+            <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 010 19.366V5.457c0-.9.732-1.632 1.636-1.632h.749L12 10.09l9.615-6.265h.749A1.636 1.636 0 0124 5.457z"/></svg>
             Email
           </a>
         </div>
       </div>
 
       <div class="contact-right sr" style="--sd:120ms">
-        <form class="cform" id="contactForm" novalidate>
+        <form class="cform" id="contactForm">
           <div class="cform-head">
             <span class="cform-title">Send a message</span>
             <span class="cform-note">I reply within 24 hours.</span>
@@ -367,20 +375,20 @@
           <div class="crow">
             <div class="cfield">
               <label for="full_name">Name</label>
-              <input type="text" id="full_name" name="name" placeholder="Your name" required>
+              <input type="text" id="full_name" name="name" placeholder="Your name" autocomplete="name" maxlength="100" required>
             </div>
             <div class="cfield">
               <label for="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="your@email.com" required>
+              <input type="email" id="email" name="email" placeholder="your@email.com" autocomplete="email" maxlength="254" required>
             </div>
           </div>
           <div class="cfield">
             <label for="subject">Subject</label>
-            <input type="text" id="subject" name="subject" placeholder="Job opportunity / Project / Other" required>
+            <input type="text" id="subject" name="subject" placeholder="Job opportunity / Project / Other" maxlength="150" required>
           </div>
           <div class="cfield">
             <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="Tell me what you have in mind..." rows="5" required></textarea>
+            <textarea id="message" name="message" placeholder="Tell me what you have in mind..." rows="5" maxlength="5000" required></textarea>
           </div>
           <button type="submit" class="csubmit">
             <span class="csubmit-text">Send message</span>
@@ -396,42 +404,67 @@
 <footer class="footer">
   <span class="footer-logo">DI<span>.</span></span>
   <span>© 2026 Divan Immelman · Johannesburg, South Africa</span>
-  <a href="/Divan_Immelman_CV.pdf" target="_blank">Download CV ↗</a>
+  <a href="/Divan_Immelman_CV.pdf" target="_blank" rel="noopener">Download CV ↗</a>
 </footer>
 
-<div id="toast" class="toast" role="alert" aria-live="polite"></div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
-  // Theme
-  const body = document.body;
+  const root = document.documentElement;
+  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
+
+  // Theme (the initial class is set in <head> to avoid a flash)
   const themeBtn = document.getElementById("themeToggle");
-  const setTheme = l => { body.classList.toggle("light", l); localStorage.setItem("theme", l ? "light" : "dark"); };
-  setTheme(localStorage.getItem("theme") === "light");
-  themeBtn.addEventListener("click", () => setTheme(!body.classList.contains("light")));
+  themeBtn.addEventListener("click", () => {
+    const light = !root.classList.contains("light");
+    root.classList.add("theme-anim");
+    root.classList.toggle("light", light);
+    try { localStorage.setItem("theme", light ? "light" : "dark"); } catch {}
+    setTimeout(() => root.classList.remove("theme-anim"), 400);
+  });
 
   // Nav scroll
   const navEl = document.getElementById("nav");
-  window.addEventListener("scroll", () => navEl.classList.toggle("scrolled", window.scrollY > 30), { passive: true });
+  const onScroll = () => navEl.classList.toggle("scrolled", window.scrollY > 30);
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
 
-  // Hamburger
+  // Mobile menu
   const ham = document.getElementById("hamburger");
   const mm  = document.getElementById("mobileMenu");
-  ham.addEventListener("click", () => { ham.classList.toggle("open"); mm.classList.toggle("open"); });
-  mm.querySelectorAll("a").forEach(a => a.addEventListener("click", () => { ham.classList.remove("open"); mm.classList.remove("open"); }));
+  const setMenu = open => {
+    ham.classList.toggle("open", open);
+    mm.classList.toggle("open", open);
+    ham.setAttribute("aria-expanded", open);
+  };
+  ham.addEventListener("click", () => setMenu(!mm.classList.contains("open")));
+  mm.querySelectorAll("a").forEach(a => a.addEventListener("click", () => setMenu(false)));
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape" && mm.classList.contains("open")) { setMenu(false); ham.focus(); }
+  });
 
   // Typing
   const titles = ["Systems Administrator", "Automation Developer", "Network Engineer", "Security Enthusiast"];
   const typingEl = document.getElementById("typing-text");
-  let ti = 0, ci = 0, del = false;
-  (function type() {
-    const cur = titles[ti];
-    typingEl.textContent = del ? cur.slice(0, --ci) : cur.slice(0, ++ci);
-    if (!del && ci === cur.length) setTimeout(() => del = true, 1600);
-    else if (del && ci === 0) { del = false; ti = (ti + 1) % titles.length; }
-    setTimeout(type, del ? 40 : 70);
-  })();
+  if (reduceMotion.matches) {
+    typingEl.textContent = titles[0];
+  } else {
+    let ti = 0, ci = 0, del = false;
+    (function type() {
+      const cur = titles[ti];
+      if (!del) {
+        typingEl.textContent = cur.slice(0, ++ci);
+        if (ci === cur.length) { del = true; return setTimeout(type, 1600); }
+        setTimeout(type, 70);
+      } else {
+        typingEl.textContent = cur.slice(0, --ci);
+        if (ci === 0) { del = false; ti = (ti + 1) % titles.length; }
+        setTimeout(type, 40);
+      }
+    })();
+  }
 
   // Scroll reveal
   const sObs = new IntersectionObserver(entries => {
@@ -444,53 +477,80 @@ document.addEventListener("DOMContentLoaded", () => {
     entries.forEach(e => {
       if (!e.isIntersecting) return;
       const el = e.target, target = +el.dataset.to;
+      cObs.unobserve(el);
+      if (reduceMotion.matches) { el.textContent = target; return; }
       let v = 0; const step = Math.max(1, Math.ceil(target / 25));
       const t = setInterval(() => { v = Math.min(v + step, target); el.textContent = v; if (v >= target) clearInterval(t); }, 45);
-      cObs.unobserve(el);
     });
   }, { threshold: 0.5 });
   document.querySelectorAll(".counter").forEach(el => cObs.observe(el));
 
-  // Particles
+  // Particles: sized on resize only, paused off-screen, one still frame for reduced motion
   const canvas = document.getElementById("particleCanvas");
   const ctx = canvas.getContext("2d");
-  let W, H, pts = [];
-  const resize = () => { W = canvas.width = canvas.offsetWidth; H = canvas.height = canvas.offsetHeight; };
-  resize();
-  window.addEventListener("resize", resize, { passive: true });
-  for (let i = 0; i < 70; i++) pts.push({ x: Math.random()*1000, y: Math.random()*1000, vx: (Math.random()-.5)*.25, vy: (Math.random()-.5)*.25, a: Math.random()*.35+.08 });
-  (function draw() {
-    W = canvas.width = canvas.offsetWidth; H = canvas.height = canvas.offsetHeight;
+  let W = 0, H = 0, running = false, visible = true;
+  const pts = Array.from({ length: 70 }, () => ({ x: Math.random(), y: Math.random(), vx: (Math.random()-.5)*.25, vy: (Math.random()-.5)*.25, a: Math.random()*.35+.08 }));
+  const resize = () => {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const newW = canvas.offsetWidth, newH = canvas.offsetHeight;
+    pts.forEach(p => { p.x = W ? p.x / W * newW : p.x * newW; p.y = H ? p.y / H * newH : p.y * newH; });
+    W = newW; H = newH;
+    canvas.width = W * dpr; canvas.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    if (!running) frame(false);
+  };
+  const frame = move => {
+    if (!W || !H) return;
     ctx.clearRect(0,0,W,H);
-    const lm = body.classList.contains("light");
+    const lm = root.classList.contains("light");
     pts.forEach(p => {
-      p.x=(p.x+p.vx+W)%W; p.y=(p.y+p.vy+H)%H;
+      if (move) { p.x=(p.x+p.vx+W)%W; p.y=(p.y+p.vy+H)%H; }
       ctx.beginPath(); ctx.arc(p.x,p.y,1,0,6.28);
       ctx.fillStyle=lm?`rgba(0,120,70,${p.a*.4})`:`rgba(0,229,160,${p.a})`;
       ctx.fill();
     });
+    ctx.lineWidth=.5;
     for (let i=0;i<pts.length;i++) for (let j=i+1;j<pts.length;j++) {
       const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
-      if (d<110) { ctx.beginPath(); ctx.moveTo(pts[i].x,pts[i].y); ctx.lineTo(pts[j].x,pts[j].y); ctx.strokeStyle=lm?`rgba(0,120,70,${.07*(1-d/110)})`:`rgba(0,229,160,${.13*(1-d/110)})`; ctx.lineWidth=.5; ctx.stroke(); }
+      if (d<110) { ctx.beginPath(); ctx.moveTo(pts[i].x,pts[i].y); ctx.lineTo(pts[j].x,pts[j].y); ctx.strokeStyle=lm?`rgba(0,120,70,${.07*(1-d/110)})`:`rgba(0,229,160,${.13*(1-d/110)})`; ctx.stroke(); }
     }
-    requestAnimationFrame(draw);
-  })();
+  };
+  const loop = () => {
+    if (!visible || reduceMotion.matches) { running = false; return; }
+    frame(true);
+    requestAnimationFrame(loop);
+  };
+  const start = () => { if (!running && visible && !reduceMotion.matches) { running = true; requestAnimationFrame(loop); } };
+  new ResizeObserver(resize).observe(canvas);
+  new IntersectionObserver(([e]) => { visible = e.isIntersecting; start(); }).observe(canvas);
+  reduceMotion.addEventListener("change", () => { start(); frame(false); });
+  new MutationObserver(() => { if (!running) frame(false); }).observe(root, { attributes: true, attributeFilter: ["class"] });
 
   // Form
   const form = document.getElementById("contactForm");
   const toast = document.getElementById("toast");
-  const showToast = (m, ok=true) => { toast.textContent=m; toast.className="toast show "+(ok?"ok":"err"); setTimeout(()=>toast.className="toast",3500); };
+  let toastTimer;
+  const showToast = (m, ok=true) => {
+    toast.textContent=m; toast.className="toast show "+(ok?"ok":"err");
+    clearTimeout(toastTimer); toastTimer = setTimeout(()=>toast.className="toast",3500);
+  };
   form.addEventListener("submit", async e => {
     e.preventDefault();
     const btn = form.querySelector(".csubmit");
+    const label = btn.querySelector(".csubmit-text");
     btn.classList.add("loading");
-    btn.querySelector(".csubmit-text").textContent = "Sending...";
+    btn.disabled = true;
+    label.textContent = "Sending...";
     try {
       const res = await fetch("https://contact-worker.divanimm123.workers.dev", { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(Object.fromEntries(new FormData(form))) });
-      res.ok ? (showToast("Message sent! I'll be in touch soon."), form.reset()) : showToast("Something went wrong. Email me directly.", false);
+      if (res.ok) { showToast("Message sent! I'll be in touch soon."); form.reset(); }
+      else showToast("Something went wrong. Email me directly.", false);
     } catch { showToast("Network error. Email me directly.", false); }
-    btn.classList.remove("loading");
-    btn.querySelector(".csubmit-text").textContent = "Send message";
+    finally {
+      btn.classList.remove("loading");
+      btn.disabled = false;
+      label.textContent = "Send message";
+    }
   });
 
 });
