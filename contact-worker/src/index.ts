@@ -1,6 +1,21 @@
-function cors(origin: string | null) {
+const ALLOWED_ORIGINS = [
+  "https://divanimmelman.com",
+  "https://www.divanimmelman.com"
+];
+
+function escapeHtml(value: unknown) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function cors(origin: string) {
   return {
-    "Access-Control-Allow-Origin": origin ?? "*",
+    "Access-Control-Allow-Origin": origin,
+    "Vary": "Origin",
     "Access-Control-Allow-Methods": "POST, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type",
     "Access-Control-Max-Age": "86400"
@@ -11,6 +26,11 @@ export default {
   async fetch(request: Request, env: any) {
 
     const origin = request.headers.get("Origin");
+
+    if (!origin || !ALLOWED_ORIGINS.includes(origin)) {
+      return new Response("Forbidden", { status: 403 });
+    }
+
     const corsHeaders = cors(origin);
 
     if (request.method === "OPTIONS") {
@@ -52,10 +72,10 @@ export default {
           subject: `[Website] ${subject}`,
           html: `
             <h2>New Website Message</h2>
-            <p><strong>Name:</strong> ${name}</p>
-            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Name:</strong> ${escapeHtml(name)}</p>
+            <p><strong>Email:</strong> ${escapeHtml(email)}</p>
             <p><strong>Message:</strong></p>
-            <p>${message}</p>
+            <p style="white-space:pre-wrap">${escapeHtml(message)}</p>
           `
         })
       });
