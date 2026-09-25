@@ -390,6 +390,7 @@
             <label for="message">Message</label>
             <textarea id="message" name="message" placeholder="Tell me what you have in mind..." rows="5" maxlength="5000" required></textarea>
           </div>
+          <div id="turnstile-widget" class="cturnstile"></div>
           <button type="submit" class="csubmit">
             <span class="csubmit-text">Send message</span>
             <span class="csubmit-arr">→</span>
@@ -410,6 +411,20 @@
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
 <script>
+// Cloudflare Turnstile (spam protection for the contact form). The site key is public.
+const TURNSTILE_SITE_KEY = "0x4AAAAAAFDCEWx0NRhO84rw";
+let turnstileWidget = null;
+function renderTurnstile() {
+  if (!window.turnstile) return;
+  if (turnstileWidget !== null) turnstile.remove(turnstileWidget);
+  turnstileWidget = turnstile.render("#turnstile-widget", {
+    sitekey: TURNSTILE_SITE_KEY,
+    theme: document.documentElement.classList.contains("light") ? "light" : "dark",
+    size: "flexible"
+  });
+}
+window.onTurnstileLoad = renderTurnstile;
+
 document.addEventListener("DOMContentLoaded", () => {
 
   const root = document.documentElement;
@@ -423,6 +438,7 @@ document.addEventListener("DOMContentLoaded", () => {
     root.classList.toggle("light", light);
     try { localStorage.setItem("theme", light ? "light" : "dark"); } catch {}
     setTimeout(() => root.classList.remove("theme-anim"), 400);
+    renderTurnstile();
   });
 
   // Nav scroll
@@ -536,6 +552,8 @@ document.addEventListener("DOMContentLoaded", () => {
   };
   form.addEventListener("submit", async e => {
     e.preventDefault();
+    if (!window.turnstile) { showToast("Spam check couldn't load. Email me directly.", false); return; }
+    if (!turnstile.getResponse(turnstileWidget)) { showToast("Hang on, the spam check is still running.", false); return; }
     const btn = form.querySelector(".csubmit");
     const label = btn.querySelector(".csubmit-text");
     btn.classList.add("loading");
@@ -547,6 +565,7 @@ document.addEventListener("DOMContentLoaded", () => {
       else showToast("Something went wrong. Email me directly.", false);
     } catch { showToast("Network error. Email me directly.", false); }
     finally {
+      turnstile.reset(turnstileWidget);  // tokens are single use
       btn.classList.remove("loading");
       btn.disabled = false;
       label.textContent = "Send message";
@@ -555,5 +574,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 </script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onTurnstileLoad" async defer></script>
 </body>
 </html>
