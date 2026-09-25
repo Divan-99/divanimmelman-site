@@ -1052,6 +1052,9 @@ html.light .cform input, html.light .cform textarea { background: var(--bg-2); }
   box-shadow: 0 0 0 3px rgba(255,90,90,.08);
 }
 
+/* Reserve the widget's height so the button doesn't jump when it loads */
+.cturnstile { min-height: 65px; }
+
 .csubmit {
   display: flex;
   align-items: center;

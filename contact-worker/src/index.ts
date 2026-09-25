@@ -1,5 +1,6 @@
 interface ContactEnv {
   RESEND_API_KEY: string;
+  TURNSTILE_SECRET_KEY: string;
 }
 
 const ALLOWED_ORIGINS = [
@@ -13,6 +14,8 @@ const LIMITS = {
   subject: 150,
   message: 5000
 } as const;
+
+const ALLOWED_HOSTNAMES = ALLOWED_ORIGINS.map(o => new URL(o).hostname);
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -54,6 +57,25 @@ function validate(data: unknown): Fields | string {
   // The subject ends up in an email header, so keep it on one line.
   fields.subject = fields.subject.replace(/[\r\n]+/g, " ");
   return fields;
+}
+
+// Checks the Turnstile token with Cloudflare. Tokens are single use and expire after 5 minutes.
+async function verifyTurnstile(token: unknown, secret: string, ip: string | null) {
+  if (typeof token !== "string" || !token || token.length > 2048) return false;
+
+  const body = new FormData();
+  body.append("secret", secret);
+  body.append("response", token);
+  if (ip) body.append("remoteip", ip);
+
+  const res = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+    method: "POST",
+    body
+  });
+  if (!res.ok) return false;
+
+  const outcome = await res.json() as { success?: boolean; hostname?: string };
+  return outcome.success === true && ALLOWED_HOSTNAMES.includes(outcome.hostname ?? "");
 }
 
 export default {
@@ -102,6 +124,15 @@ export default {
     const { name, email, subject, message } = fields;
 
     try {
+      const token = (data as Record<string, unknown>)["cf-turnstile-response"];
+      const human = await verifyTurnstile(token, env.TURNSTILE_SECRET_KEY, request.headers.get("CF-Connecting-IP"));
+      if (!human) {
+        return new Response("Verification failed", {
+          status: 403,
+          headers: corsHeaders
+        });
+      }
+
       const resendResponse = await fetch("https://api.resend.com/emails", {
         method: "POST",
         headers: {
