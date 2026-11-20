@@ -1224,3 +1224,15 @@ a.cinfo-row:active, .text-link:active {
 @media (min-width: 769px) {
   .mobile-menu { display: none; }
 }
+
+/* ─── EXPERIENCE (reuses the project row layout) ─────────────── */
+#projects::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-2), transparent);
+}
+@media (min-width: 769px) {
+  .exp-section .proj-item { grid-template-columns: 120px 1fr; }
+  .exp-section .proj-num { font-size: 2rem; }
+}

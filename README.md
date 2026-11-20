@@ -58,9 +58,9 @@ No build step. No bundler. No framework. Push to GitHub → live in 30 seconds.
 - Particle network canvas animation in the hero
 - Typing effect cycling through engineering roles
 - Scroll-triggered fade-up reveals on every section
-- Animated stat counters (20+ users, 4 projects, etc.)
+- Animated stat counters (20+ users, 8 systems, etc.)
 - Bento-grid skills layout with per-card colour accents
-- Project rows with GitHub links and hover transitions
+- Experience timeline and project rows with hover transitions
 - Contact form wired to a Cloudflare Worker → Resend → Gmail
 - Light / dark mode with `localStorage` persistence
 - Fully responsive — mobile hamburger menu included
@@ -86,12 +86,15 @@ divanimmelman-site/
 
 ## Projects Showcased
 
-| # | Project | Repo | Stack |
-|---|---|---|---|
-| 001 | Modular OCR System | [OCR_System](https://github.com/Divan-99/OCR_System) | Python · EasyOCR · Tesseract · watchdog |
-| 002 | Iscar Label Printing App | [Label-printing-app](https://github.com/Divan-99/Label-printing-app) | Django · ZPL · TCP/IP · Pandas |
-| 003 | Iscar Document Portal | [Document-portal](https://github.com/Divan-99/Document-portal) | Django · Nginx · Waitress · Linux |
-| 004 | Process Control Dashboard | [process-dashboard](https://github.com/Divan-99/process-dashboard) | Django · REST API · JS · Home Assistant |
+| # | Project | Stack |
+|---|---|---|
+| 001 | Process Control Dashboard | Django · REST API · JS · Home Assistant |
+| 002 | Document Intelligence Pipeline | Python · YOLOv8 · EasyOCR · SQLite |
+| 003 | NetWatch | Python · FastAPI · React · Vite |
+| 004 | Two-site Homelab | Proxmox VE · MikroTik · WireGuard · Nginx · Pi-hole · Cloudflare |
+| 005 | Document & Policy Portals | Django · Nginx · SQLite |
+| 006 | Label Printing App | Django · Pandas · ZPL over TCP |
+| 007 | Internal Design System | CSS · design tokens |
 
 ---
 
